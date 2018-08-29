@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const dir = "/Users/garentyler/Documents/Authentication/";
+const dir = "/home/ubuntu/gthub.us/";
 const bodyParser = require("body-parser");
 const auth = require(dir + "scripts/auth.js");
 app.use(bodyParser.urlencoded({

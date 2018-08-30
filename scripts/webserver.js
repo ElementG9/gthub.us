@@ -66,9 +66,6 @@ router.route("/login/signup")
         res.sendFile(dir + "public/signup.html");
     })
     .post((req, res) => { // the signup handler
-        console.log("\nSignup:");
-        console.log("  Username: " + req.body.username);
-        console.log("  Password: " + req.body.password);
         auth.createUser(req.body.username, req.body.password)
             .then((user) => {
                 req.session.user = user;
@@ -83,15 +80,10 @@ router.route("/login")
         res.sendFile(dir + "public/login.html");
     })
     .post((req, res) => { // the login handler
-        console.log("\nLogin:");
-        console.log("  Username: " + req.body.username);
-        console.log("  Password: " + req.body.password);
         auth.authUser(req.body.username, req.body.password).then((user) => {
-            console.log("Auth success");
             req.session.user = user;
             res.redirect("/profile");
         }).catch(() => {
-            console.log("Auth fail");
             res.redirect("/login");
         });
     });

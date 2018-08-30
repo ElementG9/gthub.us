@@ -12,7 +12,7 @@ router.use(bodyParser.urlencoded({
 }));
 router.use(bodyParser.json());
 router.use(cookies());
-router.use("view engine", pug);
+router.use("view engine", "pug");
 
 // set up session
 router.use(session({

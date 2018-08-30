@@ -14,7 +14,7 @@ var UserModel = mongoose.model("User", mongoose.Schema({
 
 var authFunc = function (username, password) {
     var load = new Promise((resolve, reject) => {
-        mongoose.connect("mongodb://localhost/authapp", null)
+        mongoose.connect("mongodb://localhost/gthub", null)
             .then(() => {
                 getFunc(username).then((doc) => {
                     var dbpass = doc[0].password;
@@ -37,7 +37,7 @@ var authFunc = function (username, password) {
 };
 var createFunc = function (username, password) {
     var load = new Promise((resolve, reject) => {
-        mongoose.connect("mongodb://localhost/authapp", null)
+        mongoose.connect("mongodb://localhost/gthub", null)
             .then(() => {
                 var usr = new UserModel({
                     username: username,
@@ -55,7 +55,7 @@ var createFunc = function (username, password) {
 };
 var getFunc = function (username) {
     var load = new Promise((resolve, reject) => {
-        mongoose.connect("mongodb://localhost/authapp", null)
+        mongoose.connect("mongodb://localhost/gthub", null)
             .then(() => {
                 UserModel
                     .find({
@@ -77,7 +77,7 @@ var getFunc = function (username) {
 };
 var updateFunc = function (username, options) {
     var load = new Promise((resolve, reject) => {
-        mongoose.connect("mongodb://localhost/authapp", null)
+        mongoose.connect("mongodb://localhost/gthub", null)
             .then(() => {
                 UserModel.findOne({
                     username: username
@@ -105,7 +105,7 @@ var updateFunc = function (username, options) {
 };
 var deleteFunc = function (username) {
     var load = new Promise((resolve, reject) => {
-        mongoose.connect("mongodb://localhost/authapp", null)
+        mongoose.connect("mongodb://localhost/gthub", null)
             .then(() => {
                 UserModel.findOneAndRemove({
                         username: username

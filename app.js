@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 
+app.set("view engine", "pug");
+
 var websiteRouter = require(__dirname + "/scripts/webserver.js");
 app.use("/", websiteRouter);
 

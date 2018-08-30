@@ -3,6 +3,7 @@ const dir = "/home/ubuntu/gthub.us/";
 const express = require("express");
 const bodyParser = require("body-parser");
 const auth = require(dir + "scripts/auth.js");
+const session = require("express-session");
 
 const router = express.Router();
 router.use(bodyParser.urlencoded({

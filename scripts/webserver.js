@@ -4,12 +4,14 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const auth = require(dir + "scripts/auth.js");
 const session = require("express-session");
+const cookies = require("cookie-parser");
 
 const router = express.Router();
 router.use(bodyParser.urlencoded({
     extended: true
 }));
 router.use(bodyParser.json());
+router.use(cookies());
 
 // set up session
 router.use(session({
@@ -23,7 +25,7 @@ router.use(session({
 }));
 // clear previous cookie if user is not logged in
 router.use((req, res, next) => {
-    if (req.cookies.user_sid && !req.session.user) {
+    if (typeof req.cookies.user_sid != "undefined" && !req.session.user) {
         res.clearCookie('user_sid');
     }
     next();

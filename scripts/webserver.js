@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const auth = require(dir + "scripts/auth.js");
 const session = require("express-session");
 const cookies = require("cookie-parser");
+const pug = require("pug");
 
 const router = express.Router();
 router.use(bodyParser.urlencoded({

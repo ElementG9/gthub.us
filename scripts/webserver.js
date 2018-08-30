@@ -5,7 +5,6 @@ const bodyParser = require("body-parser");
 const auth = require(dir + "scripts/auth.js");
 const session = require("express-session");
 const cookies = require("cookie-parser");
-const pug = require("pug");
 
 const router = express.Router();
 router.use(bodyParser.urlencoded({
@@ -13,6 +12,7 @@ router.use(bodyParser.urlencoded({
 }));
 router.use(bodyParser.json());
 router.use(cookies());
+router.use("view engine", pug);
 
 // set up session
 router.use(session({
@@ -45,7 +45,9 @@ router.get("/", sessionChecker, (req, res) => { // the main page
 });
 router.get("/profile", (req, res) => { // the profile page
     if (req.session.user && req.cookies.user_sid) {
-        res.sendFile(dir + "public/profile.html");
+        res.render("profile", {
+            username: "bob"
+        });
     } else {
         res.redirect('/login');
     }

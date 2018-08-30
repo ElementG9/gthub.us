@@ -44,8 +44,9 @@ router.get("/", sessionChecker, (req, res) => { // the main page
 });
 router.get("/profile", (req, res) => { // the profile page
     if (req.session.user && req.cookies.user_sid) {
+        var user = req.session.user;
         res.render("profile", {
-            username: "bob"
+            username: user.username
         });
     } else {
         res.redirect('/login');

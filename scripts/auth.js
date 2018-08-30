@@ -19,7 +19,10 @@ var authFunc = function (username, password) {
                 getFunc(username).then((doc) => {
                     var dbpass = doc[0].password;
                     if (bcrypt.compareSync(password, dbpass)) {
-                        resolve();
+                        resolve({
+                            username: username,
+                            password: password
+                        });
                     } else {
                         reject();
                     }
@@ -41,6 +44,7 @@ var createFunc = function (username, password) {
                     password: bcrypt.hashSync(password, 10)
                 });
                 usr.save();
+                resolve(usr);
             })
             .catch((err) => {
                 reject(err);

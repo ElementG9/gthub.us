@@ -33,7 +33,7 @@ router.use((req, res, next) => {
 // check for logged-in users
 var sessionChecker = (req, res, next) => {
     if (req.session.user && req.cookies.user_sid) {
-        res.redirect('/profile');
+        res.redirect('/dashboard');
     } else {
         next();
     }
@@ -42,10 +42,10 @@ var sessionChecker = (req, res, next) => {
 router.get("/", sessionChecker, (req, res) => { // the main page
     res.sendFile(dir + "public/index.html");
 });
-router.get("/profile", (req, res) => { // the profile page
+router.get("/dashboard", (req, res) => { // the dashboard page
     if (req.session.user && req.cookies.user_sid) {
         var user = req.session.user;
-        res.render("profile", {
+        res.render("dashboard", {
             username: user.username
         });
     } else {
@@ -69,7 +69,7 @@ router.route("/login/signup")
         auth.createUser(req.body.username, req.body.password)
             .then((user) => {
                 req.session.user = user;
-                res.redirect("/profile");
+                res.redirect("/dashboard");
             })
             .catch((err) => {
                 res.redirect("/login/signup");
@@ -82,7 +82,7 @@ router.route("/login")
     .post((req, res) => { // the login handler
         auth.authUser(req.body.username, req.body.password).then((user) => {
             req.session.user = user;
-            res.redirect("/profile");
+            res.redirect("/dashboard");
         }).catch(() => {
             res.redirect("/login");
         });

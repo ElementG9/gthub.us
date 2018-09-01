@@ -1,18 +1,18 @@
+/* - - - Modules - - - */
 const dir = "/home/ubuntu/gthub.us/";
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const auth = require(dir + "scripts/auth.js");
 const session = require("express-session");
 const cookies = require("cookie-parser");
 
+/* - - - Config - - - */
 const router = express.Router();
 router.use(bodyParser.urlencoded({
     extended: true
 }));
 router.use(bodyParser.json());
 router.use(cookies());
-
 // set up session
 router.use(session({
     key: 'user_sid',
@@ -23,6 +23,8 @@ router.use(session({
         expires: 600000 // 10 minutes
     }
 }));
+
+/* - - - Login - - - */
 // clear previous cookie if user is not logged in
 router.use((req, res, next) => {
     if (typeof req.cookies.user_sid != "undefined" && !req.session.user) {
@@ -38,20 +40,6 @@ var sessionChecker = (req, res, next) => {
         next();
     }
 };
-
-router.get("/", sessionChecker, (req, res) => { // the main page
-    res.sendFile(dir + "public/index.html");
-});
-router.get("/dashboard", (req, res) => { // the dashboard page
-    if (req.session.user && req.cookies.user_sid) {
-        var user = req.session.user;
-        res.render("dashboard", {
-            username: user.username
-        });
-    } else {
-        res.redirect('/login');
-    }
-});
 router.get('/login/logout', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
         res.clearCookie('user_sid');
@@ -60,7 +48,6 @@ router.get('/login/logout', (req, res) => {
         res.redirect('/login');
     }
 });
-
 router.route("/login/signup")
     .get(sessionChecker, (req, res) => { // the signup page
         res.sendFile(dir + "public/signup.html");
@@ -88,4 +75,28 @@ router.route("/login")
         });
     });
 
+/* - - - Routes - - - */
+router.get("/", sessionChecker, (req, res) => { // the main page
+    res.sendFile(dir + "public/index.html");
+});
+router.get("/dashboard", (req, res) => { // the dashboard page
+    if (req.session.user && req.cookies.user_sid) {
+        var user = req.session.user;
+        res.render("dashboard", {
+            username: user.username
+        });
+    } else {
+        res.redirect('/login');
+    }
+});
+router.route("/post")
+    .get((req, res) => {
+        res.sendFile(dir + "public/post.html");
+    })
+    .post((req, res) => {
+        var data = req.body.content;
+        console.log(data);
+    });;
+
+/* - - - Export - - - */
 module.exports = router;

@@ -100,7 +100,7 @@ router.get("/dashboard", (req, res) => { // the dashboard page
 router.route("/post")
     .post((req, res) => {
         var data = req.body.content;
-        console.log(data);
+        console.log(req.session.user.username + " posted " + data);
         res.redirect("/dashboard");
     });;
 router.get("/style/:file", (req, res) => {

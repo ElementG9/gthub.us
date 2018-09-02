@@ -31,8 +31,11 @@ var createUUID = function (len) {
                     "UUID": UUID
                 }, (err, docs) => {
                     if (err) reject(err); // if err reject
-                    // if (docs) createUUID(len); // if not unique, regenerate uuid
-                    console.log(docs);
+                    if (docs != []) {
+                        createUUID(len); // if not unique, regenerate uuid
+                    } else {
+                        resolve(UUID);
+                    }
                 });
             }).catch((err) => {
                 reject(err);

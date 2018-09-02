@@ -44,17 +44,22 @@ var createUUID = function (len) {
     return load;
 };
 var authFunc = function (username, password) {
+    console.log("User authenticating");
     var load = new Promise((resolve, reject) => {
         mongoose.connect("mongodb://localhost/gthub", null)
             .then(() => {
+                console.log("Connected to db");
                 getFunc(username).then((doc) => {
+                    console.log("Got user");
                     var dbpass = doc[0].password;
                     if (bcrypt.compareSync(password, dbpass)) {
+                        console.log("Correct credentials");
                         resolve({
                             username: username,
                             password: password
                         });
                     } else {
+                        console.log("Incorrect credentials");
                         reject();
                     }
                 });

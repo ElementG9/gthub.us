@@ -73,10 +73,13 @@ router.route("/login")
         });
     })
     .post((req, res) => { // the login handler
+        console.log("POST to /login");
         user.authUser(req.body.username, req.body.password).then((user) => {
+            console.log("User auth success");
             req.session.user = user;
             res.redirect("/dashboard");
         }).catch(() => {
+            console.log("User auth fail");
             res.redirect("/login");
         });
     });

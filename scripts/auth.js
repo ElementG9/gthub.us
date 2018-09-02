@@ -161,6 +161,7 @@ var deleteFunc = function (username) {
 };
 
 module.exports = {
+    createUUID: createUUID,
     authUser: authFunc,
     createUser: createFunc,
     getUser: getFunc,

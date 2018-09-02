@@ -83,9 +83,16 @@ router.route("/login")
 
 /* - - - Routes - - - */
 router.get("/", (req, res) => { // the main page
-    res.render("index", {
-        title: "gthub.us"
-    });
+    if (req.session.user && req.cookies.user_sid) {
+        res.render("index", {
+            title: "gthub.us",
+            loggedin: true
+        });
+    } else {
+        res.render("index", {
+            title: "gthub.us"
+        });
+    }
 });
 router.get("/dashboard", (req, res) => { // the dashboard page
     if (req.session.user && req.cookies.user_sid) {

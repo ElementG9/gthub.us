@@ -2,6 +2,7 @@ extends layout.pug
 block content
     p!= `Hello ${username}!`
     link(rel="stylesheet", href="/style/dashboard.css")
+    br
     #post-div
         p Post
         form(method='post', action='/post')

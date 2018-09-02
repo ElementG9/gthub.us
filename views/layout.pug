@@ -8,11 +8,16 @@ head
     a(href="https://gthub.us/") gthub.us
     a.active(href='/dashboard') Dashboard
     .align-right
-        case loggedin
-            when true
-                a(href='/login/logout') Logout
-            default
-                a(href='/login') Login
+        .dropdown
+            case loggedin
+                when true
+                    a(href='/login/logout').dropbtn Logout
+                default
+                    a(href='/login').dropbtn Login
+            .dropdown-content
+                a(href="/settings")
+
+
 .content
     block content
 .javascript

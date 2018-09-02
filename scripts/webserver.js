@@ -50,7 +50,9 @@ router.get('/login/logout', (req, res) => {
 });
 router.route("/login/signup")
     .get(sessionChecker, (req, res) => { // the signup page
-        res.render("signup", {});
+        res.render("signup", {
+            title: "Signup"
+        });
     })
     .post((req, res) => { // the signup handler
         auth.createUser(req.body.username, req.body.password)
@@ -64,7 +66,9 @@ router.route("/login/signup")
     });
 router.route("/login")
     .get(sessionChecker, (req, res) => { // the login page
-        res.render("login", {});
+        res.render("login", {
+            title: "Login"
+        });
     })
     .post((req, res) => { // the login handler
         auth.authUser(req.body.username, req.body.password).then((user) => {
@@ -77,14 +81,17 @@ router.route("/login")
 
 /* - - - Routes - - - */
 router.get("/", sessionChecker, (req, res) => { // the main page
-    res.render("index", {});
+    res.render("index", {
+        title: "gthub.us"
+    });
 });
 router.get("/dashboard", (req, res) => { // the dashboard page
     if (req.session.user && req.cookies.user_sid) {
         var user = req.session.user;
         res.render("dashboard", {
             loggedin: true,
-            username: user.username
+            username: user.username,
+            title: "Dashboard"
         });
     } else {
         res.redirect('/login');

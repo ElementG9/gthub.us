@@ -1,10 +1,11 @@
-extends nav.pug
-p Hello #{username}!
-a(href="/login/logout") Logout
-link(rel="stylesheet", href="/style/dashboard.css")
-#post-div
-    p Post
-    form(method='post', action='/post')
-        input(type='textarea', name='content')
-        br
-        input(type='submit', value='Submit')
+extends layout.pug
+block content
+    p Hello #{username}!
+    a(href="/login/logout") Logout
+    link(rel="stylesheet", href="/style/dashboard.css")
+    #post-div
+        p Post
+        form(method='post', action='/post')
+            input(type='textarea', name='content')
+            br
+            input(type='submit', value='Submit')

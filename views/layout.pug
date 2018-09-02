@@ -1,0 +1,19 @@
+doctype html
+head
+	meta(charset='utf-8')
+	meta(name='viewport', content='width=device-width, initial-scale=1.0')
+	title #{title}
+	link(rel="stylesheet", href="/style/nav.css")
+.nav
+	a(href="https://gthub.us/") gthub.us
+    a.active(href='/dashboard') Dashboard
+    -if (!loggedin) var loggedin = false;
+    case loggedin
+        when true
+            a(href='/logout').align-right Logout
+        default
+            a(href='/login').align-right Login
+.content
+	block content
+.javascript
+    block javascript

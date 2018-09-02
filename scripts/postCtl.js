@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-var UserModel = mongoose.model("User", mongoose.Schema({
+const UserModel = mongoose.model("User", mongoose.Schema({
     UUID: {
         type: String,
         required: true,

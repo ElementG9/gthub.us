@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 var bcrypt = require("bcryptjs");
 var UserModel = mongoose.model("User", mongoose.Schema({
+    UUID: {
+        type: String,
+        required: true,
+        unique: true
+    },
     username: {
         type: String,
         required: true,
@@ -13,13 +18,24 @@ var UserModel = mongoose.model("User", mongoose.Schema({
 }));
 
 var createUUID = function (len) {
-    var UUID = "";
-    var alphanumeric = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    for (var i = 0; i < len; i++) {
-        var char = alphanumeric[Math.round(Math.random() * alphanumeric.length)];
-        UUID = UUID.concat(char);
-    }
-    console.log(UUID);
+    var load = new Promise(resolve, reject, () => {
+        var UUID = "";
+        var alphanumeric = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        for (var i = 0; i < len; i++) {
+            var char = alphanumeric[Math.round(Math.random() * alphanumeric.length)];
+            UUID = UUID.concat(char);
+        }
+        mongoose.connect("mongodb://localhost/gthub", null)
+            .then(() => {
+                console.log(UserModel.find({
+                    "UUID": UUID
+                }));
+            }).catch((err) => {
+                reject();
+                console.log(err);
+            });
+    });
+    return load;
 };
 createUUID(6);
 var authFunc = function (username, password) {

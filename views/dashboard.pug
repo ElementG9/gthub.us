@@ -1,3 +1,7 @@
-a(href="/login/logout") Logout
-a(href="/post") Post
 p Hello #{username}!
+a(href="/login/logout") Logout
+p Post
+form(method='post', action='/post')
+    input(type='textarea', name='content')
+    br
+    input(type='submit', value='Submit')

@@ -96,6 +96,7 @@ router.route("/post")
     .post((req, res) => {
         var data = req.body.content;
         console.log(data);
+        res.redirect("/dashboard");
     });;
 
 /* - - - Export - - - */

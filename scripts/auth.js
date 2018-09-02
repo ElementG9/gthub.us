@@ -12,6 +12,16 @@ var UserModel = mongoose.model("User", mongoose.Schema({
     }
 }));
 
+var createUUID = function (len) {
+    var UUID = "";
+    var alphanumeric = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    for (var i = 0; i < len; i++) {
+        var char = alphanumeric[Math.round(Math.random(0, alphanumeric.length))];
+        UUID = UUID.concat(char);
+    }
+    console.log(UUID);
+};
+createUUID(6);
 var authFunc = function (username, password) {
     var load = new Promise((resolve, reject) => {
         mongoose.connect("mongodb://localhost/gthub", null)

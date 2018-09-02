@@ -103,6 +103,9 @@ router.route("/post")
         console.log(data);
         res.redirect("/dashboard");
     });;
+router.get("/style/:file", (req, res) => {
+    res.sendFile(dir + "style/" + req.params.file);
+});
 
 /* - - - Export - - - */
 module.exports = router;

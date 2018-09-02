@@ -51,7 +51,7 @@ var authFunc = function (username, password) {
                 console.log("Connected to db");
                 getFunc(username).then((doc) => {
                     console.log("Got user" + doc);
-                    var dbpass = doc[0].password;
+                    var dbpass = doc.password;
                     if (bcrypt.compareSync(password, dbpass)) {
                         console.log("Correct credentials");
                         resolve({

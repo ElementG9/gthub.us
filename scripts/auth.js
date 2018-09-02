@@ -43,10 +43,6 @@ var createUUID = function (len) {
     });
     return load;
 };
-createUUID(6)
-    .then((UUID) => {
-        console.log(UUID);
-    });
 var authFunc = function (username, password) {
     var load = new Promise((resolve, reject) => {
         mongoose.connect("mongodb://localhost/gthub", null)
@@ -74,12 +70,16 @@ var createFunc = function (username, password) {
     var load = new Promise((resolve, reject) => {
         mongoose.connect("mongodb://localhost/gthub", null)
             .then(() => {
-                var usr = new UserModel({
-                    username: username,
-                    password: bcrypt.hashSync(password, 10)
-                });
-                usr.save();
-                resolve(usr);
+                createUUID(6)
+                    .then((UUID) => {
+                        var usr = new UserModel({
+                            username: username,
+                            password: bcrypt.hashSync(password, 10),
+                            UUID: UUID
+                        });
+                        usr.save();
+                        resolve(usr);
+                    });
             })
             .catch((err) => {
                 reject(err);

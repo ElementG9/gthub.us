@@ -1,20 +1,4 @@
 const mongoose = require("mongoose");
-const UserModel = mongoose.model("User", mongoose.Schema({
-    UUID: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    username: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    password: {
-        type: String,
-        required: true
-    }
-}));
 const PostModel = mongoose.model("Post", mongoose.Schema({
     UPID: {
         type: String,
@@ -32,6 +16,7 @@ const PostModel = mongoose.model("Post", mongoose.Schema({
 
 var createUPID = function (len) { // unique post identifier
     var load = new Promise((resolve, reject) => {
+        var UserModel = require("/home/ubuntu/gthub.us/scripts/userCtl.js").UserModel;
         var UPID = "";
         var alphanumeric = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         for (var i = 0; i < len; i++) {
@@ -142,5 +127,6 @@ module.exports = {
     createPost: createFunc,
     getPost: getFunc,
     updatePost: updateFunc,
-    deletePost: deleteFunc
+    deletePost: deleteFunc,
+    PostModel: PostModel
 };

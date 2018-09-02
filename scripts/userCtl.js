@@ -16,20 +16,6 @@ const UserModel = mongoose.model("User", mongoose.Schema({
         required: true
     }
 }));
-const PostModel = mongoose.model("Post", mongoose.Schema({
-    UPID: {
-        type: String,
-        required: true
-    },
-    username: {
-        type: String,
-        required: true
-    },
-    data: {
-        type: String,
-        required: true
-    }
-}));
 
 var createUUID = function (len) {
     var load = new Promise((resolve, reject) => {
@@ -179,5 +165,6 @@ module.exports = {
     createUser: createFunc,
     getUser: getFunc,
     updateUser: updateFunc,
-    deleteUser: deleteFunc
+    deleteUser: deleteFunc,
+    UserModel: UserModel
 };

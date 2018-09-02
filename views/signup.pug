@@ -7,17 +7,5 @@ block content
         br
         input(type='password', name='password', placeholder='Password')#pass1
         br
-        input(type='password', placeholder='Confirm password')#pass2
-        br
         input(type='submit', value='Submit')
     a(href="/login") Login
-block javascript
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
-    script.
-        var confirmPass = ()=>{
-            if($("#pass1").val() == $("#pass2").val()) {
-                return true;
-            } else {
-                return false;
-            }
-        };

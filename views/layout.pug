@@ -7,11 +7,12 @@ head
 .nav
     a(href="https://gthub.us/") gthub.us
     a.active(href='/dashboard') Dashboard
-    case loggedin
-        when true
-            a(href='/login/logout').align-right Logout
-        default
-            a(href='/login').align-right Login
+    .align-rignt
+        case loggedin
+            when true
+                a(href='/login/logout') Logout
+            default
+                a(href='/login') Login
 .content
     block content
 .javascript

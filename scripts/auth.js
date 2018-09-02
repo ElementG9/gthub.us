@@ -27,12 +27,15 @@ var createUUID = function (len) {
         }
         mongoose.connect("mongodb://localhost/gthub", null)
             .then(() => {
-                console.log(UserModel.find({
+                UserModel.find({
                     "UUID": UUID
-                }));
+                }, (err, docs) => {
+                    if (err) reject(err); // if err reject
+                    // if (docs) createUUID(len); // if not unique, regenerate uuid
+                    console.log(docs);
+                });
             }).catch((err) => {
-                reject();
-                console.log(err);
+                reject(err);
             });
     });
     return load;

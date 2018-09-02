@@ -7,7 +7,6 @@ head
 .nav
     a(href="https://gthub.us/") gthub.us
     a.active(href='/dashboard') Dashboard
-    -if (!loggedin) var loggedin = false;
     case loggedin
         when true
             a(href='/logout').align-right Logout

@@ -25,14 +25,11 @@ var createUUID = function (len) {
             var char = alphanumeric[Math.round(Math.random() * alphanumeric.length)];
             UUID = UUID.concat(char);
         }
-        console.log(UUID);
         mongoose.connect("mongodb://localhost/gthub", null)
             .then(() => {
-                console.log("Connected to db");
                 UserModel.find({
                     "UUID": UUID
                 }, (err, docs) => {
-                    console.log("Searched for UUID");
                     if (err) reject(err); // if err reject
                     if (typeof docs[0] != "undefined") {
                         createUUID(len); // if not unique, regenerate uuid
@@ -46,10 +43,6 @@ var createUUID = function (len) {
     });
     return load;
 };
-createUUID(6)
-    .then((UUID) => {
-        console.log(UUID);
-    });
 var authFunc = function (username, password) {
     var load = new Promise((resolve, reject) => {
         mongoose.connect("mongodb://localhost/gthub", null)

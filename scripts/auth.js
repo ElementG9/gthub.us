@@ -18,7 +18,7 @@ var UserModel = mongoose.model("User", mongoose.Schema({
 }));
 
 var createUUID = function (len) {
-    var load = new Promise(resolve, reject, () => {
+    var load = new Promise((resolve, reject) => {
         var UUID = "";
         var alphanumeric = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         for (var i = 0; i < len; i++) {

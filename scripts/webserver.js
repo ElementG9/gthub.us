@@ -80,7 +80,7 @@ router.route("/login")
     });
 
 /* - - - Routes - - - */
-router.get("/", sessionChecker, (req, res) => { // the main page
+router.get("/", (req, res) => { // the main page
     res.render("index", {
         title: "gthub.us"
     });

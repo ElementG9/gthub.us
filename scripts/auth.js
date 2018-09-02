@@ -43,7 +43,10 @@ var createUUID = function (len) {
     });
     return load;
 };
-createUUID(6);
+createUUID(6)
+    .then((UUID) => {
+        console.log(UUID);
+    });
 var authFunc = function (username, password) {
     var load = new Promise((resolve, reject) => {
         mongoose.connect("mongodb://localhost/gthub", null)

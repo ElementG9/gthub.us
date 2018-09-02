@@ -90,9 +90,6 @@ router.get("/dashboard", (req, res) => { // the dashboard page
     }
 });
 router.route("/post")
-    .get((req, res) => {
-        res.sendFile(dir + "public/post.html");
-    })
     .post((req, res) => {
         var data = req.body.content;
         console.log(data);

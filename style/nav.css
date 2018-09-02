@@ -1,0 +1,20 @@
+.nav {
+    overflow: hidden;
+}
+
+.nav a {
+    color: blue;
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.nav a:hover {
+    color: black;
+}
+
+.nav .align-right {
+    float: right;
+}

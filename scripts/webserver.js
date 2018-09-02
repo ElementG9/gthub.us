@@ -1,8 +1,10 @@
 /* - - - Modules - - - */
 const dir = "/home/ubuntu/gthub.us/";
+const user = require(dir + "scripts/userCtl.js");
+const post = require(dir + "scripts/postCtl.js");
+
 const express = require("express");
 const bodyParser = require("body-parser");
-const auth = require(dir + "scripts/auth.js");
 const session = require("express-session");
 const cookies = require("cookie-parser");
 
@@ -55,7 +57,7 @@ router.route("/login/signup")
         });
     })
     .post((req, res) => { // the signup handler
-        auth.createUser(req.body.username, req.body.password)
+        user.createUser(req.body.username, req.body.password)
             .then((user) => {
                 req.session.user = user;
                 res.redirect("/dashboard");
@@ -71,7 +73,7 @@ router.route("/login")
         });
     })
     .post((req, res) => { // the login handler
-        auth.authUser(req.body.username, req.body.password).then((user) => {
+        user.authUser(req.body.username, req.body.password).then((user) => {
             req.session.user = user;
             res.redirect("/dashboard");
         }).catch(() => {

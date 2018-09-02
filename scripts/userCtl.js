@@ -16,6 +16,20 @@ var UserModel = mongoose.model("User", mongoose.Schema({
         required: true
     }
 }));
+const PostModel = mongoose.model("Post", mongoose.Schema({
+    UPID: {
+        type: String,
+        required: true
+    },
+    username: {
+        type: String,
+        required: true
+    },
+    data: {
+        type: String,
+        required: true
+    }
+}));
 
 var createUUID = function (len) {
     var load = new Promise((resolve, reject) => {
@@ -92,16 +106,15 @@ var getFunc = function (username) {
     var load = new Promise((resolve, reject) => {
         mongoose.connect("mongodb://localhost/gthub", null)
             .then(() => {
-                UserModel
-                    .find({
-                        username: username
-                    })
-                    .then((doc) => {
-                        resolve(doc);
-                    })
-                    .catch((err) => {
+                UserModel.findOne({
+                    username: username
+                }, (err, doc) => {
+                    if (err) {
                         reject(err);
-                    });
+                    } else {
+                        resolve(doc);
+                    }
+                })
             })
             .catch((err) => {
                 reject(err);

@@ -1,4 +1,20 @@
 const mongoose = require("mongoose");
+var UserModel = mongoose.model("User", mongoose.Schema({
+    UUID: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    }
+}));
 const PostModel = mongoose.model("Post", mongoose.Schema({
     UPID: {
         type: String,
@@ -13,6 +29,7 @@ const PostModel = mongoose.model("Post", mongoose.Schema({
         required: true
     }
 }));
+
 var createUPID = function (len) { // unique post identifier
     var load = new Promise((resolve, reject) => {
         var UPID = "";
@@ -43,7 +60,16 @@ var createFunc = function (username, data) {
     var load = new Promise((resolve, reject) => {
         mongoose.connect("mongodb://localhost/gthub", null)
             .then(() => {
-
+                createUPID(6)
+                    .then((UPID) => {
+                        var post = new PostModel({
+                            UPID: UPID,
+                            username: username,
+                            data: data
+                        });
+                        post.save();
+                        resolve(post);
+                    });
             }).catch((err) => {
                 reject(err);
             });
@@ -54,18 +80,37 @@ var getFunc = function (UPID) {
     var load = new Promise((resolve, reject) => {
         mongoose.connect("mongodb://localhost/gthub", null)
             .then(() => {
-
+                PostModel.findOne({
+                    UPID: UPID
+                }, (err, doc) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(doc);
+                    }
+                });
             }).catch((err) => {
                 reject(err);
             });
     });
     return load;
 };
-var updateFunc = function (data) {
+var updateFunc = function (UPID, data) {
     var load = new Promise((resolve, reject) => {
         mongoose.connect("mongodb://localhost/gthub", null)
             .then(() => {
-
+                UserModel.findOne({
+                    UPID: UPID
+                }, (err, doc) => {
+                    if (err) throw err;
+                    if (options.data) {
+                        doc.data = options.data;
+                        doc.save();
+                        resolve();
+                    } else {
+                        reject();
+                    }
+                });
             }).catch((err) => {
                 reject(err);
             });
@@ -76,7 +121,15 @@ var deleteFunc = function (UPID) {
     var load = new Promise((resolve, reject) => {
         mongoose.connect("mongodb://localhost/gthub", null)
             .then(() => {
-
+                PostModel.findOneAndRemove({
+                        UPID: UPID
+                    })
+                    .then((res) => {
+                        resolve(res);
+                    })
+                    .catch((err) => {
+                        reject(err);
+                    });
             }).catch((err) => {
                 reject(err);
             });

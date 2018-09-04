@@ -7,16 +7,15 @@ head
 body
     .nav
         a(href="https://gthub.us/") gthub.us
-        a.active(href='/dashboard') Dashboard
-        .align-right
-            case loggedin
-                when true
-                    a(href='/logout') Logout
-                default
-                    .dropdown
-                        a(href='/login').dropbtn Login
-                        .dropdown-content
-                            a(href="/signup") Signup
+        case loggedin
+            when true
+                a(href='/dashboard') Dashboard
+                a(href='/logout') Logout
+            default
+                .dropdown
+                    a(href='/login').dropbtn Login
+                    .dropdown-content
+                        a(href="/signup") Signup
     .content
         block content
     .javascript

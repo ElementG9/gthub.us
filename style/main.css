@@ -70,7 +70,7 @@ body {
     transition: 0.2s;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown .dropbtn:hover .dropdown-content {
     display: block;
 }
 

@@ -4,6 +4,10 @@ body {
     margin: 0;
 }
 
+.content {
+    padding: 6px;
+}
+
 .nav {
     background-color: #333;
     overflow: hidden;

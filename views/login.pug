@@ -5,12 +5,15 @@ block content
         .login
             h1 Login
             hr
+
             label(for="username") #[b Username]
+            br
             input(type="text",placeholder="Enter username",name="username",required)
 
             label(for="password") #[b Password]
+            br
             input(type="password",placeholder="Enter password",name="password",required)
 
             button(type="submit") Login
     .signup
-        p Don't have an account? #[a(href="/signup") Signup]!
+        p Don't have an account? #[a(href="/signup") Sign up]!

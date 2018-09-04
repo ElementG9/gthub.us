@@ -3,17 +3,18 @@ head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title #{title}
-    link(rel="stylesheet", href="/style/nav.css")
-.nav
-    a(href="https://gthub.us/") gthub.us
-    a.active(href='/dashboard') Dashboard
-    .align-right
-        case loggedin
-            when true
-                a(href='/logout') Logout
-            default
-                a(href='/login').dropbtn Login
-.content
-    block content
-.javascript
-    block javascript
+    link(rel="stylesheet", href="/style/main.css")
+body
+    .nav
+        a(href="https://gthub.us/") gthub.us
+        a.active(href='/dashboard') Dashboard
+        .align-right
+            case loggedin
+                when true
+                    a(href='/logout') Logout
+                default
+                    a(href='/login').dropbtn Login
+    .content
+        block content
+    .javascript
+        block javascript

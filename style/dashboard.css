@@ -36,6 +36,7 @@
 
 .other-posts {
     border-left: 6px solid #4CAF50;
+    padding: 14px 16px;
 }
 
 .other-posts #posts {
@@ -45,5 +46,7 @@
 }
 
 .other-posts #posts li {
-    border-left: 6px solid #4CAF50;
+    border-left: 3px solid #4CAF50;
+    padding: 14px 16px;
+    margin: 3px 6px;
 }

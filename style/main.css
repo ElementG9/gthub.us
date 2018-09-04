@@ -16,6 +16,8 @@ hr {
 .nav {
     background-color: #333;
     overflow: hidden;
+    position: fixed;
+    top: 0;
 }
 
 .nav a {

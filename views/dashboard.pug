@@ -3,9 +3,11 @@ block content
     p!= `Hello ${username}!`
     link(rel="stylesheet", href="/style/dashboard.css")
     br
-    #post-div
-        p Post
+    .posts
+    .create-post
         form(method='post', action='/post')
-            input(type='textarea', name='content')
+            label(for="content") #[b Post]
             br
-            input(type='submit', value='Submit')
+            input(type='textarea', name='content', placeholder='Type something')
+            br
+            button(type='submit') Post!

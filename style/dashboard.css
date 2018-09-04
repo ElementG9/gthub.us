@@ -1,3 +1,35 @@
-#post-div {
-    width: 25%;
+.create-post {
+    background-color: #e7f3fe;
+    border-left: 6px solid #2196F3;
+    display: block;
+}
+
+.create-post input {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 5px 6px 22px 0;
+    border: none;
+    background-color: #f1f1f1;
+    transition: 0.2s;
+}
+
+.create-post input:hover {
+    background-color: #e7e7e7;
+}
+
+.create-post button {
+    background-color: #373;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.create-post button:hover {
+    background-color: #484;
 }

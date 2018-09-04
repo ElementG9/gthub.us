@@ -1,11 +1,16 @@
 extends layout.pug
 block content
-    p Signup
-    br
-    form(method='post', action='/login/signup', onsubmit="return confirmPass()")
-        input(type='text', name='username', placeholder='Username')
-        br
-        input(type='password', name='password', placeholder='Password')#pass1
-        br
-        input(type='submit', value='Submit')
-    a(href="/login") Login
+    link(rel="stylesheet", href="/style/signup.css")
+    form(action="/signup")
+        .signup
+            h1 Sign up
+            hr
+            label(for="username") #[b Username]
+            input(type="text",placeholder="Enter username",name="username",required)
+
+            label(for="password") #[b Password]
+            input(type="password",placeholder="Enter password",name="password",required)
+
+            button(type="submit") Login
+    .login
+        p Already have an account? #[a(href="/login") Log in]!

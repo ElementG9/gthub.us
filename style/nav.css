@@ -22,37 +22,3 @@
 .nav .align-right {
     float: right;
 }
-
-.dropdown {
-    overflow: hidden;
-}
-
-.dropdown .dropbtn {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-}
-
-.dropdown .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #333;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown .dropdown-content a {
-    float: none;
-    padding: 12px 16px;
-    display: block;
-    text-align: left;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}

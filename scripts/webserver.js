@@ -42,7 +42,7 @@ var sessionChecker = (req, res, next) => {
         next();
     }
 };
-router.get('/login/logout', (req, res) => {
+router.get('/logout', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
         res.clearCookie('user_sid');
         res.redirect('/');
@@ -50,7 +50,7 @@ router.get('/login/logout', (req, res) => {
         res.redirect('/login');
     }
 });
-router.route("/login/signup")
+router.route("/signup")
     .get(sessionChecker, (req, res) => { // the signup page
         res.render("signup", {
             title: "Signup"
@@ -63,7 +63,7 @@ router.route("/login/signup")
                 res.redirect("/dashboard");
             })
             .catch((err) => {
-                res.redirect("/login/signup");
+                res.redirect("/signup");
             });
     });
 router.route("/login")

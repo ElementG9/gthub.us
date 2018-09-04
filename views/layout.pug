@@ -10,15 +10,9 @@ head
     .align-right
         case loggedin
             when true
-                .dropdown
-                    a(href='/login/logout').dropbtn Logout
-                    .dropdown-content
-                        a(href="/settings") Settings
+                a(href='/logout') Logout
             default
                 a(href='/login').dropbtn Login
-
-
-
 .content
     block content
 .javascript

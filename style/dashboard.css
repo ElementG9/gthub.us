@@ -33,3 +33,17 @@
 .create-post button:hover {
     background-color: #448;
 }
+
+.other-posts {
+    border-left: 6px solid #4CAF50;
+}
+
+.other-posts #posts {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.other-posts #posts li {
+    border-left: 6px solid #4CAF50;
+}

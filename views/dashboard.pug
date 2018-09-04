@@ -1,13 +1,19 @@
 extends layout.pug
 block content
-    p!= `Hello ${username}!`
+    h1 Dashboard
+    hr
     link(rel="stylesheet", href="/style/dashboard.css")
     br
-    .posts
     .create-post
         form(method='post', action='/post')
-            label(for="content") #[b Post]
+            label(for="content") #[b Create post]
             br
             input(type='textarea', name='content', placeholder='Type something...')
             br
             button(type='submit') Post!
+    .other-posts
+        p #[b Posts]
+        ul#posts
+            li Post 1
+            li Post 2
+            li Post 3

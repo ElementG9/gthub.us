@@ -11,7 +11,10 @@ hr {
 
 .content {
     padding: 6px;
-    top: 44px;
+}
+
+.spacer {
+    height: 44px;
 }
 
 .nav {

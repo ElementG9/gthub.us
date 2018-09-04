@@ -10,12 +10,14 @@ body
         case loggedin
             when true
                 a(href='/dashboard') Dashboard
-                a(href='/logout') Logout
+                .align-right
+                    a(href='/logout') Logout
             default
-                .dropdown
-                    a(href='/login').dropbtn Login
-                    .dropdown-content
-                        a(href="/signup") Signup
+                .align-right
+                    .dropdown
+                        a(href='/login').dropbtn Login
+                        .dropdown-content
+                            a(href="/signup") Signup
     .content
         block content
     .javascript

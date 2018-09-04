@@ -13,7 +13,10 @@ body
                 when true
                     a(href='/logout') Logout
                 default
-                    a(href='/login').dropbtn Login
+                    .dropdown
+                        a(href='/login').dropbtn Login
+                        .dropdown-content
+                            a(href="/signup") Signup
     .content
         block content
     .javascript

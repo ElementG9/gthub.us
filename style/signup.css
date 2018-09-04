@@ -14,14 +14,11 @@
     margin: 5px 0 22px 0;
     border: none;
     background-color: #f1f1f1;
+    transition: 0.2s;
 }
 
 .signup input:hover {
     background-color: #e7e7e7;
-}
-
-.signup input:focus {
-    background-color: #dddddd;
 }
 
 .signup button {
@@ -33,4 +30,9 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    transition: 0.2s;
+}
+
+.signup button:hover {
+    background-color: #484;
 }

@@ -3,6 +3,10 @@ hr {
     margin-bottom: 25px;
 }
 
+#user {
+    color: #AAA;
+}
+
 .create-post {
     border-left: 6px solid #2196F3;
     display: block;

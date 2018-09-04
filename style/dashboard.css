@@ -1,7 +1,13 @@
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
 .create-post {
     border-left: 6px solid #2196F3;
     display: block;
     padding: 14px 16px;
+    margin-bottom: 25px;
 }
 
 .create-post input {
@@ -37,6 +43,7 @@
 .other-posts {
     border-left: 6px solid #4CAF50;
     padding: 14px 16px;
+    margin-bottom: 25px;
 }
 
 .other-posts #posts {

@@ -22,7 +22,7 @@ body {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 16px;
-    border-right: 1px solid #444
+    border-right: 1px solid #444;
 }
 
 .nav a:hover {
@@ -31,51 +31,5 @@ body {
 
 .nav .align-right {
     float: right;
-}
-
-.dropdown {
-    overflow: hidden;
-}
-
-.dropdown .dropbtn {
-    font-size: 16px;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-    background-color: #333;
-    transition: 0.2s;
-}
-
-.dropdown .dropdown-content {
-    border: none;
-    display: none;
-    position: absolute;
-    top: 44px;
-    background-color: #333;
-    min-width: 80px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    padding-right: 6px;
-}
-
-.dropdown .dropdown-content a {
-    float: none;
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: right;
-    transition: 0.2s;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown .dropbtn:hover,
-.dropdown .dropdown-content a:hover {
-    background-color: #373;
+    border-left: 1px solid #444;
 }

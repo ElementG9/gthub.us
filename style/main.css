@@ -39,7 +39,6 @@ body {
 
 .dropdown .dropbtn {
     font-size: 16px;
-    border: none;
     outline: none;
     color: white;
     padding: 14px 16px;
@@ -51,6 +50,7 @@ body {
 }
 
 .dropdown .dropdown-content {
+    border: none;
     display: none;
     position: absolute;
     top: 44px;

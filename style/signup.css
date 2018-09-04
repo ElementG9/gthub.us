@@ -2,11 +2,6 @@
     display: block;
 }
 
-.signup hr {
-    border: 1px solid #f1f1f1;
-    margin-bottom: 25px;
-}
-
 .signup input {
     display: block;
     width: 100%;

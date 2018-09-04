@@ -2,6 +2,7 @@
     background-color: #e7f3fe;
     border-left: 6px solid #2196F3;
     display: block;
+    padding: 14px 16px;
 }
 
 .create-post input {
@@ -19,7 +20,7 @@
 }
 
 .create-post button {
-    background-color: #373;
+    background-color: #337;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -31,5 +32,5 @@
 }
 
 .create-post button:hover {
-    background-color: #484;
+    background-color: #448;
 }

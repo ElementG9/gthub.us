@@ -7,9 +7,18 @@
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
+    background-color: #f1f1f1;
 }
 
-hr {
+.signup input:hover {
+    background-color: #e7e7e7;
+}
+
+.signup input:focus {
+    background-color: #dddddd;
+}
+
+.signup hr {
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
 }

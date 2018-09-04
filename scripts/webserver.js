@@ -53,7 +53,7 @@ router.get('/logout', (req, res) => {
 router.route("/signup")
     .get(sessionChecker, (req, res) => { // the signup page
         res.render("signup", {
-            title: "Signup"
+            title: "gthub.us Signup"
         });
     })
     .post((req, res) => { // the signup handler
@@ -69,7 +69,7 @@ router.route("/signup")
 router.route("/login")
     .get(sessionChecker, (req, res) => { // the login page
         res.render("login", {
-            title: "Login"
+            title: "gthub.us Login"
         });
     })
     .post((req, res) => { // the login handler
@@ -100,7 +100,7 @@ router.get("/dashboard", (req, res) => { // the dashboard page
         res.render("dashboard", {
             loggedin: true,
             username: user.username,
-            title: "Dashboard"
+            title: "gthub.us Dashboard"
         });
     } else {
         res.redirect('/login');

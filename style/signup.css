@@ -2,9 +2,14 @@
     display: block;
 }
 
+.signup hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
 .signup input {
     display: block;
-    width: 75%;
+    width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
@@ -19,7 +24,13 @@
     background-color: #dddddd;
 }
 
-.signup hr {
-    border: 1px solid #f1f1f1;
-    margin-bottom: 25px;
+.signup button {
+    background-color: #373;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }

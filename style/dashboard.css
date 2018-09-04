@@ -1,5 +1,4 @@
 .create-post {
-    background-color: #e7f3fe;
     border-left: 6px solid #2196F3;
     display: block;
     padding: 14px 16px;
@@ -8,7 +7,6 @@
 .create-post input {
     display: block;
     width: 95%;
-    min-height: 80px;
     padding: 15px;
     margin: 5px 6px 22px 0;
     border: none;

@@ -8,15 +8,16 @@
 .create-post input {
     display: block;
     width: 100%;
+    min-height: 80px;
     padding: 15px;
     margin: 5px 6px 22px 0;
     border: none;
-    background-color: #f1f1f1;
+    background-color: #f1f1ff;
     transition: 0.2s;
 }
 
 .create-post input:hover {
-    background-color: #e7e7e7;
+    background-color: #e7e7f5;
 }
 
 .create-post button {

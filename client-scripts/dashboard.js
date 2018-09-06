@@ -1,5 +1,6 @@
 var app = angular.module("OtherPosts", []);
 app.controller("OtherPostsCtl", function ($scope) {
+    $scope.names = ["Bob", "Alice", "Eve"];
     $scope.posts = [{
         poster: "user1",
         postdata: "post1"

@@ -112,7 +112,7 @@ router.route("/post")
         console.log(req.session.user.username + " posted " + data);
         res.redirect("/dashboard");
     });;
-router.get("/feed/:user", (req, res) => {
+router.get("/feed", (req, res) => {
     console.log("Get feed for: " + req.session.user.username);
     res.json([{
             poster: "asdf",

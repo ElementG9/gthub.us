@@ -115,7 +115,7 @@ router.route("/post")
 router.get("/style/:file", (req, res) => {
     res.sendFile(dir + "style/" + req.params.file);
 });
-router.get("/script/:file", (req, res) => {
+router.get("/scripts/:file", (req, res) => {
     res.sendFile(dir + "client-scripts/" + req.params.file);
 });
 

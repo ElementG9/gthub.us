@@ -113,6 +113,7 @@ router.route("/post")
         res.redirect("/dashboard");
     });;
 router.get("/feed/:user", (req, res) => {
+    console.log("Get feed for: " + req.params.user);
     res.json([{
             poster: "asdf",
             postdata: "Hello world!"

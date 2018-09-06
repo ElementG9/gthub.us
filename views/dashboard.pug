@@ -4,6 +4,8 @@ block content
     h4#user #{username}
     hr
     link(rel="stylesheet", href="/style/dashboard.css")
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js')
+    script(src="/style/dashboard.js")
     br
     .create-post
         form(method='post', action='/post')
@@ -12,14 +14,8 @@ block content
             input(type='textarea', name='content', placeholder='Type something...')
             br
             button(type='submit') Post!
-    .other-posts
+    .other-posts(ng-app="OtherPosts", ng-controller="OtherPostsCtl")
         p #[b Posts]
-        .post
-            p.poster User1
-            p.postdata Post1
-        .post
-            p.poster User2
-            p.postdata Post2
-        .post
-            p.poster User3
-            p.postdata Post3
+        .post(ng-repeat="post in posts")
+            p.poster {{post.poster}}
+            p.postdata {{post.postdata}}

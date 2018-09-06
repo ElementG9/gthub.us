@@ -115,6 +115,9 @@ router.route("/post")
 router.get("/style/:file", (req, res) => {
     res.sendFile(dir + "style/" + req.params.file);
 });
+router.get("/script/:file", (req, res) => {
+    res.sendFile(dir + "client-scripts/" + req.params.file);
+});
 
 /* - - - Export - - - */
 module.exports = router;

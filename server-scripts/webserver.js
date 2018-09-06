@@ -112,6 +112,23 @@ router.route("/post")
         console.log(req.session.user.username + " posted " + data);
         res.redirect("/dashboard");
     });;
+router.get("/feed/:user", (req, res) => {
+    res.json([{
+            poster: "asdf",
+            postdata: "Hello world!"
+        },
+        {
+            poster: "garentyler",
+            postdata: "Goodbye cruel world!"
+        },
+        {
+            poster: req.params.user,
+            postdata: "I posted this!"
+        }
+    ]);
+});
+
+// serve the css and js files
 router.get("/style/:file", (req, res) => {
     res.sendFile(dir + "style/" + req.params.file);
 });

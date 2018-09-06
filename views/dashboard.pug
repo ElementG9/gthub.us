@@ -14,7 +14,8 @@ block content
             input(type='textarea', name='content', placeholder='Type something...')
             br
             button(type='submit') Post!
-    .other-posts(ng-app="OtherPosts", ng-controller="OtherPostsCtl", ng-init="user="+username)
+            -var ngInit = "user="+username;
+    .other-posts(ng-app="OtherPosts", ng-controller="OtherPostsCtl", ng-init=ngInit)
         p #[b Posts]
         .post(ng-repeat="post in posts")
             p.poster {{post.poster}}

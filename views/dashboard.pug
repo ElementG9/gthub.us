@@ -16,6 +16,6 @@ block content
             button(type='submit') Post!
     .other-posts(ng-app="OtherPosts", ng-controller="OtherPostsCtl")
         p #[b Posts]
-        .post(ng-repeat="name in names")
-            p.poster {{name}}
+        .post(ng-repeat="post in posts")
+            p.poster {{post.poster}}
             p.postdata {{post.postdata}}

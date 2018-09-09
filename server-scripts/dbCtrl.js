@@ -178,10 +178,10 @@ var userCtl = {
                     userCtl.getUser(username).then((doc) => {
                         var dbpass = doc.password;
                         if (bcrypt.compareSync(password, dbpass)) {
-                            resolve({
-                                username: username,
-                                password: password
-                            });
+                            userCtl.getUser(username)
+                                .then((user) => {
+                                    resolve(user);
+                                });
                         } else {
                             reject();
                         }

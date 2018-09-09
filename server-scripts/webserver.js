@@ -1,7 +1,7 @@
 /* - - - Modules - - - */
 const dir = "/home/ubuntu/gthub.us/";
-const user = require(dir + "server-scripts/dbCtrl.js").user;
-const post = require(dir + "server-scripts/dbCtrl.js").post;
+const userCtl = require(dir + "server-scripts/dbCtrl.js").user;
+const postCtl = require(dir + "server-scripts/dbCtrl.js").post;
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -64,7 +64,7 @@ router.route("/signup")
         });
     })
     .post((req, res) => { // the signup handler
-        user.createUser(req.body.username, req.body.password)
+        userCtl.createUser(req.body.username, req.body.password)
             .then((user) => {
                 req.session.user = user;
                 res.redirect("/dashboard");
@@ -110,9 +110,9 @@ router.get("/dashboard", protectRoute, (req, res) => { // the dashboard page
     });
 });
 router.route("/post")
-    .post((req, res) => {
+    .post(protectedRoute, (req, res) => {
         var data = req.body.content;
-        console.log(req.session.user.username + " posted " + data);
+        console.log(req.session.user);
         res.redirect("/dashboard");
     });;
 router.get("/feed", (req, res) => {

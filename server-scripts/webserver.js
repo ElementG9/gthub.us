@@ -1,7 +1,7 @@
 /* - - - Modules - - - */
 const dir = "/home/ubuntu/gthub.us/";
-const user = require(dir + "server-scripts/userCtl.js");
-const post = require(dir + "server-scripts/postCtl.js");
+const user = require(dir + "server-scripts/dbCtrl.js").user;
+const post = require(dir + "server-scripts/dbCtrl.js").post;
 
 const express = require("express");
 const bodyParser = require("body-parser");

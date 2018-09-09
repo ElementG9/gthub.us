@@ -172,7 +172,7 @@ var userCtl = {
         var load = new Promise((resolve, reject) => {
             mongoose.connect("mongodb://localhost/gthub", null)
                 .then(() => {
-                    getFunc(username).then((doc) => {
+                    userCtl.getUser(username).then((doc) => {
                         var dbpass = doc.password;
                         if (bcrypt.compareSync(password, dbpass)) {
                             resolve({

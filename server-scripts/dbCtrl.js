@@ -195,7 +195,7 @@ var userCtl = {
         var load = new Promise((resolve, reject) => {
             mongoose.connect("mongodb://localhost/gthub", null)
                 .then(() => {
-                    createUUID(6)
+                    userCtl.createUUID(6)
                         .then((UUID) => {
                             var usr = new UserModel({
                                 username: username,

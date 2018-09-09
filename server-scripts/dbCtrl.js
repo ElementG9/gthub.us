@@ -15,7 +15,10 @@ const UserModel = mongoose.model("User", mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    posts: [String],
+    following: [String],
+    followers: [String]
 }));
 const PostModel = mongoose.model("Post", mongoose.Schema({
     UPID: {

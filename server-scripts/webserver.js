@@ -101,17 +101,13 @@ router.get("/", (req, res) => { // the main page
         });
     }
 });
-router.get("/dashboard", (req, res) => { // the dashboard page
-    if (req.session.user && req.cookies.user_sid) {
-        var user = req.session.user;
-        res.render("dashboard", {
-            loggedin: true,
-            username: user.username,
-            title: "gthub.us Dashboard"
-        });
-    } else {
-        res.redirect('/login');
-    }
+router.get("/dashboard", protectRoute, (req, res) => { // the dashboard page
+    var user = req.session.user;
+    res.render("dashboard", {
+        loggedin: true,
+        username: user.username,
+        title: "gthub.us Dashboard"
+    });
 });
 router.route("/post")
     .post((req, res) => {

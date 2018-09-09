@@ -60,7 +60,7 @@ var postCtl = {
         });
         return load;
     },
-    createFunc: function (username, data) {
+    createPost: function (username, data) {
         var load = new Promise((resolve, reject) => {
             mongoose.connect("mongodb://localhost/gthub", null)
                 .then(() => {
@@ -80,7 +80,7 @@ var postCtl = {
         });
         return load;
     },
-    getFunc: function (UPID) {
+    getPost: function (UPID) {
         var load = new Promise((resolve, reject) => {
             mongoose.connect("mongodb://localhost/gthub", null)
                 .then(() => {
@@ -99,7 +99,7 @@ var postCtl = {
         });
         return load;
     },
-    updateFunc: function (UPID, data) {
+    updatePost: function (UPID, data) {
         var load = new Promise((resolve, reject) => {
             mongoose.connect("mongodb://localhost/gthub", null)
                 .then(() => {
@@ -121,7 +121,7 @@ var postCtl = {
         });
         return load;
     },
-    deleteFunc: function (UPID) {
+    deletePost: function (UPID) {
         var load = new Promise((resolve, reject) => {
             mongoose.connect("mongodb://localhost/gthub", null)
                 .then(() => {
@@ -168,7 +168,7 @@ var userCtl = {
         });
         return load;
     },
-    authFunc: function (username, password) {
+    authUser: function (username, password) {
         var load = new Promise((resolve, reject) => {
             mongoose.connect("mongodb://localhost/gthub", null)
                 .then(() => {
@@ -191,7 +191,7 @@ var userCtl = {
         });
         return load;
     },
-    createFunc: function (username, password) {
+    createUser: function (username, password) {
         var load = new Promise((resolve, reject) => {
             mongoose.connect("mongodb://localhost/gthub", null)
                 .then(() => {
@@ -213,7 +213,7 @@ var userCtl = {
         });
         return load;
     },
-    getFunc: function (username) {
+    getUser: function (username) {
         var load = new Promise((resolve, reject) => {
             mongoose.connect("mongodb://localhost/gthub", null)
                 .then(() => {
@@ -234,7 +234,7 @@ var userCtl = {
         });
         return load;
     },
-    updateFunc: function (username, options) {
+    updateUser: function (username, options) {
         var load = new Promise((resolve, reject) => {
             mongoose.connect("mongodb://localhost/gthub", null)
                 .then(() => {
@@ -262,7 +262,7 @@ var userCtl = {
         });
         return load;
     },
-    deleteFunc: function (username) {
+    deleteUser: function (username) {
         var load = new Promise((resolve, reject) => {
             mongoose.connect("mongodb://localhost/gthub", null)
                 .then(() => {

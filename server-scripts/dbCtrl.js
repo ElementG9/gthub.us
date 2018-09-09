@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 var bcrypt = require("bcryptjs");
 
-const UserModel = mongoose.model("User", mongoose.Schema({
+const UserModel = mongoose.model("user", mongoose.Schema({
     UUID: {
         type: String,
         required: true,
@@ -20,7 +20,7 @@ const UserModel = mongoose.model("User", mongoose.Schema({
     following: [String],
     followers: [String]
 }));
-const PostModel = mongoose.model("Post", mongoose.Schema({
+const PostModel = mongoose.model("post", mongoose.Schema({
     UPID: {
         type: String,
         required: true

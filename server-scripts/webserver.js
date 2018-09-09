@@ -80,7 +80,7 @@ router.route("/login")
         });
     })
     .post((req, res) => { // the login handler
-        user.authUser(req.body.username, req.body.password).then((user) => {
+        userCtl.authUser(req.body.username, req.body.password).then((user) => {
             req.session.user = user;
             res.redirect("/dashboard");
         }).catch(() => {

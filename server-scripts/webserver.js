@@ -8,11 +8,6 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const cookies = require("cookie-parser");
 
-// test createuser
-user.createUser("asdf", "asdf").then((user) => {
-    console.log(user);
-});
-
 /* - - - Config - - - */
 const router = express.Router();
 router.use(bodyParser.urlencoded({
@@ -40,11 +35,18 @@ router.use((req, res, next) => {
     next();
 });
 // check for logged-in users
-var sessionChecker = (req, res, next) => {
+var checkLoggedIn = (req, res, next) => {
     if (req.session.user && req.cookies.user_sid) {
-        res.redirect('/dashboard');
+        res.redirect('/dashboard'); // if loggedin, redirect to dashboard
     } else {
-        next();
+        next(); // else continue
+    }
+};
+var protectRoute = (req, res, next) => {
+    if (req.session.user && req.cookies.user_sid) {
+        next(); // if logged in, continue
+    } else {
+        res.redirect("/login"); // else redirect to login
     }
 };
 router.get('/logout', (req, res) => {
@@ -56,7 +58,7 @@ router.get('/logout', (req, res) => {
     }
 });
 router.route("/signup")
-    .get(sessionChecker, (req, res) => { // the signup page
+    .get(checkLoggedIn, (req, res) => { // the signup page
         res.render("signup", {
             title: "gthub.us Signup"
         });
@@ -72,7 +74,7 @@ router.route("/signup")
             });
     });
 router.route("/login")
-    .get(sessionChecker, (req, res) => { // the login page
+    .get(checkLoggedIn, (req, res) => { // the login page
         res.render("login", {
             title: "gthub.us Login"
         });

@@ -110,7 +110,7 @@ router.get("/dashboard", protectRoute, (req, res) => { // the dashboard page
     });
 });
 router.route("/post")
-    .post(protectedRoute, (req, res) => {
+    .post(protectRoute, (req, res) => {
         var data = req.body.content;
         console.log(req.session.user);
         res.redirect("/dashboard");

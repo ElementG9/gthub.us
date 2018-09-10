@@ -67,7 +67,7 @@ var postCtl = {
         var load = new Promise((resolve, reject) => {
             mongoose.connect("mongodb://localhost/gthub", null)
                 .then(() => {
-                    createUPID(6)
+                    postCtl.createUPID(6)
                         .then((UPID) => {
                             var post = new PostModel({
                                 UPID: UPID,

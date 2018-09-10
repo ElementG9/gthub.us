@@ -1,2 +1,21 @@
-a(href="/login/logout") Logout
-p Hello #{username}!
+extends layout.pug
+block content
+    h1 Dashboard
+    h4#user #{username}
+    hr
+    link(rel="stylesheet", href="/style/dashboard.css")
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js')
+    script(src="/scripts/dashboard.js")
+    br
+    .create-post
+        form(method='post', action='/post')
+            label(for="content") #[b Create post]
+            br
+            input(type='textarea', name='content', placeholder='Type something...')
+            br
+            button(type='submit') Post!
+    .other-posts(ng-app="OtherPosts", ng-controller="OtherPostsCtl")
+        p #[b Posts]
+        .post(ng-repeat="post in posts")
+            p.poster {{post.username}}
+            p.postdata {{post.data}}

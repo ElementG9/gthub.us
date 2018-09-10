@@ -3,7 +3,7 @@ const app = express();
 
 app.set("view engine", "pug");
 
-var websiteRouter = require(__dirname + "/scripts/webserver.js");
+var websiteRouter = require(__dirname + "/server-scripts/webserver.js");
 app.use("/", websiteRouter);
 
 // 404 error

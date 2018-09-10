@@ -1,0 +1,16 @@
+extends layout.pug
+block content
+    link(rel="stylesheet", href="/style/signup.css")
+    form(action="/signup",method="post")
+        .signup
+            h1 Sign up
+            hr
+            .username
+                label(for="username") #[b Username]
+                input(type="text",placeholder="Enter username",name="username",required)
+            .password
+                label(for="password") #[b Password]
+                input(type="password",placeholder="Enter password",name="password",required)
+            button(type="submit")#signup-btn Sign up
+    .login
+        p Already have an account? #[a(href="/login") Log in]!

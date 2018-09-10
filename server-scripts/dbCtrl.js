@@ -74,6 +74,7 @@ var postCtl = {
                                 username: username,
                                 data: data
                             });
+                            console.log(post);
                             post.save();
                             resolve(post);
                         });

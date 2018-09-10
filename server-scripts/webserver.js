@@ -50,12 +50,8 @@ var protectRoute = (req, res, next) => {
     }
 };
 router.get('/logout', (req, res) => {
-    if (req.session.user && req.cookies.user_sid) {
-        res.clearCookie('user_sid');
-        res.redirect('/');
-    } else {
-        res.redirect('/login');
-    }
+    res.clearCookie('user_sid');
+    res.redirect('/');
 });
 router.route("/signup")
     .get(checkLoggedIn, (req, res) => { // the signup page
@@ -112,27 +108,14 @@ router.get("/dashboard", protectRoute, (req, res) => { // the dashboard page
 router.route("/post")
     .post(protectRoute, (req, res) => {
         var data = req.body.content;
-        postCtl.createPost(req.session.user.username, data)
-            .then((post) => {
-                console.log(post);
-            });
+        postCtl.createPost(req.session.user.username, data);
         res.redirect("/dashboard");
     });;
 router.get("/feed", (req, res) => {
-    console.log("Get feed for: " + req.session.user.username);
-    res.json([{
-            poster: "asdf",
-            postdata: "Hello world!"
-        },
-        {
-            poster: "garentyler",
-            postdata: "Goodbye cruel world!"
-        },
-        {
-            poster: req.session.user.username,
-            postdata: "I posted this!"
-        }
-    ]);
+    postCtl.getAllPosts()
+        .then((docs) => {
+            res.json(docs);
+        });
 });
 
 // serve the css and js files

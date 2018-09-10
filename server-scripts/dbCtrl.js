@@ -104,6 +104,23 @@ var postCtl = {
         });
         return load;
     },
+    getAllPosts: function () {
+        var load = new Promise((resolve, reject) => {
+            mongoose.connect("mongodb://localhost/gthub", null)
+                .then(() => {
+                    PostModel.find({}, (err, docs) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(docs);
+                        }
+                    });
+                }).catch((err) => {
+                    reject(err);
+                });
+        });
+        return load;
+    },
     updatePost: function (UPID, data) {
         var load = new Promise((resolve, reject) => {
             mongoose.connect("mongodb://localhost/gthub", null)

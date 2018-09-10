@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 var bcrypt = require("bcryptjs");
 
-const UserModel = mongoose.model("user", mongoose.Schema({
+const UserModel = mongoose.model("User", mongoose.Schema({
     UUID: {
         type: String,
         required: true,
@@ -20,7 +20,7 @@ const UserModel = mongoose.model("user", mongoose.Schema({
     following: [String],
     followers: [String]
 }));
-const PostModel = mongoose.model("post", mongoose.Schema({
+const PostModel = mongoose.model("Post", mongoose.Schema({
     UPID: {
         type: String,
         required: true
@@ -38,7 +38,6 @@ const PostModel = mongoose.model("post", mongoose.Schema({
 var postCtl = {
     createUPID: function (len) { // unique post identifier
         var load = new Promise((resolve, reject) => {
-            var UserModel = require("/home/ubuntu/gthub.us/scripts/userCtl.js").UserModel;
             var UPID = "";
             var alphanumeric = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             for (var i = 0; i < len; i++) {
@@ -64,6 +63,7 @@ var postCtl = {
         return load;
     },
     createPost: function (username, data) {
+        console.log(`createPost(${username},${data})`);
         var load = new Promise((resolve, reject) => {
             mongoose.connect("mongodb://localhost/gthub", null)
                 .then(() => {

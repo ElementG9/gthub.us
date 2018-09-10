@@ -114,7 +114,7 @@ router.route("/post")
 router.get("/feed", (req, res) => {
     postCtl.getAllPosts()
         .then((docs) => {
-            res.json(docs);
+            res.json(docs.reverse());
         });
 });
 

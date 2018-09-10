@@ -112,7 +112,10 @@ router.get("/dashboard", protectRoute, (req, res) => { // the dashboard page
 router.route("/post")
     .post(protectRoute, (req, res) => {
         var data = req.body.content;
-        console.log(req.session.user);
+        postCtl.createPost(req.session.user.username, data)
+            .then((post) => {
+                console.log(post);
+            });
         res.redirect("/dashboard");
     });;
 router.get("/feed", (req, res) => {

@@ -8,6 +8,9 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const cookies = require("cookie-parser");
 
+// test createPost
+postCtl.createPost("asdf", "fdsa");
+
 /* - - - Config - - - */
 const router = express.Router();
 router.use(bodyParser.urlencoded({

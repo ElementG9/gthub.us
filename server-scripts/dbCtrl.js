@@ -63,7 +63,6 @@ var postCtl = {
         return load;
     },
     createPost: function (username, data) {
-        console.log(`createPost(${username},${data})`);
         var load = new Promise((resolve, reject) => {
             mongoose.connect("mongodb://localhost/gthub", null)
                 .then(() => {
@@ -74,7 +73,9 @@ var postCtl = {
                                 username: username,
                                 data: data
                             });
-                            console.log(post);
+                            userCtl.updateUser(username, {
+                                addPost: post.UPID
+                            }); // add post to user
                             post.save();
                             resolve(post);
                         });
@@ -252,6 +253,10 @@ var userCtl = {
                             resolve();
                         } else if (options.password) {
                             doc.password = bcrypt.hashSync(options.password, 10);
+                            doc.save();
+                            resolve();
+                        } else if (options.addPost) {
+                            doc.posts.push(options.addPost);
                             doc.save();
                             resolve();
                         } else {

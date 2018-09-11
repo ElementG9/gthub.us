@@ -12,7 +12,7 @@ block content
             form
                 label #[b Create post]
                 br
-                input(type='textarea', ng-bind='content', placeholder='Type something...')
+                input(type='textarea', ng-model='content', placeholder='Type something...')
                 br
                 button(ng-click="sendPost()") Post!
         .other-posts

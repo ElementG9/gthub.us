@@ -56,3 +56,7 @@ button:hover {
     color: #777;
     font-size: 14px;
 }
+
+.other-posts button {
+    margin-bottom: 8px;
+}

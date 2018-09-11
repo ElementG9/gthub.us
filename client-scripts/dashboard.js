@@ -3,7 +3,7 @@ app.controller("AppCtl", function ($scope, $http) {
     // definitions
     $scope.content = "";
     $scope.sendPost = () => {
-        console.log("Sending post");
+        console.log("Sending post: " + $scope.content);
         $http({
             method: "post",
             url: "/post",

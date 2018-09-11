@@ -7,7 +7,9 @@ app.controller("AppCtl", function ($scope, $http) {
         $http({
             method: "post",
             url: "/post",
-            data: $scope.content,
+            data: JSON.stringify({
+                content: $scope.content
+            }),
             // headers: {
             //     'Content-Type': 'application/x-www-form-urlencoded'
             // }

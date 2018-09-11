@@ -3,23 +3,19 @@ app.controller("AppCtl", function ($scope, $http) {
     // definitions
     $scope.content = "";
     $scope.sendPost = () => {
-        $http({
-            method: 'POST',
-            url: '/post',
-            data: {
-                content: $scope.content
-            },
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
+        console.log("Sending post");
+        $http.post("/post", {
+            content: $scope.content
+        }).then(() => {
+            console.log("Post success");
+        }).catch(() => {
+            console.log("Post error");
         });
         $scope.getPosts();
     };
     $scope.getPosts = () => {
-        $http({
-            method: 'GET',
-            url: '/feed',
-        }).then((data) => {
+        console.log("Getting posts");
+        $http.get("/feed").then((data) => {
             $scope.posts = data.data;
         });
     };

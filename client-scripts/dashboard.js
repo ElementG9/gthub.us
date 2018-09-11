@@ -10,9 +10,6 @@ app.controller("AppCtl", function ($scope, $http) {
             data: JSON.stringify({
                 content: $scope.content
             }),
-            // headers: {
-            //     'Content-Type': 'application/x-www-form-urlencoded'
-            // }
         }).then(() => {
             console.log("Post success");
             $scope.getPosts();

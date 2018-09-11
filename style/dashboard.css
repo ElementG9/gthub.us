@@ -28,7 +28,7 @@ button:hover {
 }
 
 .create-post {
-    border-left: #2196F3;
+    border-left: 6px solid #2196F3;
 }
 
 .create-post input {

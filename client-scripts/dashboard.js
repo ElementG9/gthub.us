@@ -8,9 +8,9 @@ app.controller("AppCtl", function ($scope, $http) {
             method: "post",
             url: "/post",
             data: $scope.content,
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
+            // headers: {
+            //     'Content-Type': 'application/x-www-form-urlencoded'
+            // }
         }).then(() => {
             console.log("Post success");
             $scope.getPosts();

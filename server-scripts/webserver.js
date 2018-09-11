@@ -108,7 +108,6 @@ router.get("/dashboard", protectRoute, (req, res) => { // the dashboard page
 router.route("/post")
     .post(protectRoute, (req, res) => {
         var data = req.body.content;
-        console.log(req.body);
         postCtl.createPost(req.session.user.username, data);
         res.redirect("/dashboard");
     });;

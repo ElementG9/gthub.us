@@ -21,7 +21,7 @@ button:hover {
 
 .create-post,
 .other-posts {
-    border-left: 6px solid #2196F3;
+    border-left: 6px solid #4CAF50;
     display: block;
     padding: 14px 16px;
     margin-bottom: 25px;
@@ -48,15 +48,20 @@ button:hover {
 }
 
 .other-posts .post .poster {
-    color: #AAA;
+    color: #777;
     font-size: 16px;
 }
 
 .other-posts .post .postdata {
-    color: #777;
+    color: #555;
     font-size: 14px;
 }
 
 .other-posts button {
     margin-bottom: 8px;
+    background-color: #373;
+}
+
+.other-posts button:hover {
+    background-color: #484;
 }

@@ -3,11 +3,32 @@
     padding: 0px 14px;
 }
 
-.create-post {
-    border-left: 6px solid #2196F3;
+button {
+    background-color: #337;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #448;
+}
+
+.create-post,
+.other-posts {
+    border-left: 6px solid #4CAF50;
     display: block;
     padding: 14px 16px;
     margin-bottom: 25px;
+}
+
+.create-post {
+    border-left: 6px solid #2196F3;
 }
 
 .create-post input {
@@ -24,28 +45,6 @@
     background-color: #e7e7e7;
 }
 
-.create-post button {
-    background-color: #337;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    transition: 0.2s;
-}
-
-.create-post button:hover {
-    background-color: #448;
-}
-
-.other-posts {
-    border-left: 6px solid #4CAF50;
-    padding: 14px 16px;
-    margin-bottom: 25px;
-}
-
 .other-posts .post {
     margin: 4px;
     border: 1px solid #e1e1e1;
@@ -53,11 +52,20 @@
 }
 
 .other-posts .post .poster {
-    color: #AAA;
+    color: #777;
     font-size: 16px;
 }
 
 .other-posts .post .postdata {
-    color: #777;
+    color: #555;
     font-size: 14px;
+}
+
+.other-posts button {
+    margin-bottom: 8px;
+    background-color: #373;
+}
+
+.other-posts button:hover {
+    background-color: #484;
 }

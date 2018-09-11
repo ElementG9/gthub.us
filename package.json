@@ -1,7 +1,7 @@
 {
-  "name": "authentication",
+  "name": "gthub.us",
   "version": "1.0.0",
-  "description": "authentication",
+  "description": "The gthub.us website.",
   "main": "app.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -12,14 +12,15 @@
     "forever": "^0.15.3",
     "mongoose": "^5.2.10",
     "nodemon": "^1.18.4",
-    "pug": "^2.0.3"
+    "pug": "^2.0.3",
+    "socket.io": "^2.1.1"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Hello world!\";"
   },
   "keywords": [
-    "authentication",
+    "gthub.us",
     "ElementG9"
   ],
   "author": "ElementG9",

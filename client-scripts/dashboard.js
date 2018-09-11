@@ -5,6 +5,7 @@ app.controller("AppCtl", function ($scope, $http) {
     $scope.sendPost = () => {
         console.log("Sending post");
         $http({
+            method: "post",
             url: "/post",
             data: {
                 content: $scope.content

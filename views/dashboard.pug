@@ -7,15 +7,16 @@ block content
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js')
     script(src="/scripts/dashboard.js")
     br
-    .create-post
-        form(method='post', action='/post')
-            label(for="content") #[b Create post]
-            br
-            input(type='textarea', name='content', placeholder='Type something...')
-            br
-            button(type='submit') Post!
-    .other-posts(ng-app="OtherPosts", ng-controller="OtherPostsCtl")
-        p #[b Posts]
-        .post(ng-repeat="post in posts")
-            p.poster {{post.username}}
-            p.postdata {{post.data}}
+    .app(ng-app="App", ng-controller="AppCtl")
+        .create-post
+            form
+                label #[b Create post]
+                br
+                input(type='textarea', ng-model='content', placeholder='Type something...')
+                br
+                button(ng-click="sendData()") Post!
+        .other-posts
+            p #[b Posts]
+            .post(ng-repeat="post in posts")
+                p.poster {{post.username}}
+                p.postdata {{post.data}}

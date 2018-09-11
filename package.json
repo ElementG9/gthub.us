@@ -1,7 +1,7 @@
 {
-  "name": "authentication",
+  "name": "gthub.us",
   "version": "1.0.0",
-  "description": "authentication",
+  "description": "The gthub.us website.",
   "main": "app.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -20,7 +20,7 @@
     "test": "echo \"Hello world!\";"
   },
   "keywords": [
-    "authentication",
+    "gthub.us",
     "ElementG9"
   ],
   "author": "ElementG9",

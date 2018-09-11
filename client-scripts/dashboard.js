@@ -1,5 +1,9 @@
+var socket = io();
 var app = angular.module("App", []);
 app.controller("AppCtl", function ($scope, $http) {
+    socket.on("create post", () => {
+        $scope.getPosts();
+    });
     // definitions
     $scope.content = "";
     $scope.sendPost = () => {
@@ -11,8 +15,8 @@ app.controller("AppCtl", function ($scope, $http) {
                     content: $scope.content
                 }),
             }).then(() => {
+                socket.emit("create post", null);
                 $scope.content = "";
-                $scope.getPosts();
             }).catch(() => {
                 console.log("Post error");
             });

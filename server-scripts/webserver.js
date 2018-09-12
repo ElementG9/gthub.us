@@ -1,4 +1,5 @@
 /* - - - Modules - - - */
+const dir = JSON.parse(require("fs").readFileSync("../config.json", "utf8")).dir;
 const userCtl = require(dir + "server-scripts/dbCtrl.js").user;
 const postCtl = require(dir + "server-scripts/dbCtrl.js").post;
 

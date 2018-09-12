@@ -3,8 +3,6 @@ const http = require("http").Server(app);
 var io = require("socket.io")(http);
 
 app.set("view engine", "pug");
-var dir = __dirname;
-var db = "mongodb://localhost/gthub";
 
 var websiteRouter = require(__dirname + "/server-scripts/webserver.js");
 app.use("/", websiteRouter);

@@ -44,7 +44,7 @@ var postCtl = {
                 var char = alphanumeric[Math.round(Math.random() * alphanumeric.length)];
                 UPID = UPID.concat(char);
             }
-            mongoose.connect("mongodb://localhost/gthub", null)
+            mongoose.connect(db, null)
                 .then(() => {
                     UserModel.find({
                         "UPID": UPID
@@ -64,7 +64,7 @@ var postCtl = {
     },
     createPost: function (username, data) {
         var load = new Promise((resolve, reject) => {
-            mongoose.connect("mongodb://localhost/gthub", null)
+            mongoose.connect(db, null)
                 .then(() => {
                     postCtl.createUPID(6)
                         .then((UPID) => {
@@ -87,7 +87,7 @@ var postCtl = {
     },
     getPost: function (UPID) {
         var load = new Promise((resolve, reject) => {
-            mongoose.connect("mongodb://localhost/gthub", null)
+            mongoose.connect(db, null)
                 .then(() => {
                     PostModel.findOne({
                         UPID: UPID
@@ -106,7 +106,7 @@ var postCtl = {
     },
     getAllPosts: function () {
         var load = new Promise((resolve, reject) => {
-            mongoose.connect("mongodb://localhost/gthub", null)
+            mongoose.connect(db, null)
                 .then(() => {
                     PostModel.find({}, (err, docs) => {
                         if (err) {
@@ -123,7 +123,7 @@ var postCtl = {
     },
     updatePost: function (UPID, data) {
         var load = new Promise((resolve, reject) => {
-            mongoose.connect("mongodb://localhost/gthub", null)
+            mongoose.connect(db, null)
                 .then(() => {
                     UserModel.findOne({
                         UPID: UPID
@@ -145,7 +145,7 @@ var postCtl = {
     },
     deletePost: function (UPID) {
         var load = new Promise((resolve, reject) => {
-            mongoose.connect("mongodb://localhost/gthub", null)
+            mongoose.connect(db, null)
                 .then(() => {
                     PostModel.findOneAndRemove({
                             UPID: UPID
@@ -172,7 +172,7 @@ var userCtl = {
                 var char = alphanumeric[Math.round(Math.random() * alphanumeric.length)];
                 UUID = UUID.concat(char);
             }
-            mongoose.connect("mongodb://localhost/gthub", null)
+            mongoose.connect(db, null)
                 .then(() => {
                     UserModel.find({
                         "UUID": UUID
@@ -192,7 +192,7 @@ var userCtl = {
     },
     authUser: function (username, password) {
         var load = new Promise((resolve, reject) => {
-            mongoose.connect("mongodb://localhost/gthub", null)
+            mongoose.connect(db, null)
                 .then(() => {
                     userCtl.getUser(username).then((doc) => {
                         var dbpass = doc.password;
@@ -215,7 +215,7 @@ var userCtl = {
     },
     createUser: function (username, password) {
         var load = new Promise((resolve, reject) => {
-            mongoose.connect("mongodb://localhost/gthub", null)
+            mongoose.connect(db, null)
                 .then(() => {
                     userCtl.createUUID(6)
                         .then((UUID) => {
@@ -237,7 +237,7 @@ var userCtl = {
     },
     getUser: function (username) {
         var load = new Promise((resolve, reject) => {
-            mongoose.connect("mongodb://localhost/gthub", null)
+            mongoose.connect(db, null)
                 .then(() => {
                     UserModel.findOne({
                         username: username
@@ -258,7 +258,7 @@ var userCtl = {
     },
     updateUser: function (username, options) {
         var load = new Promise((resolve, reject) => {
-            mongoose.connect("mongodb://localhost/gthub", null)
+            mongoose.connect(db, null)
                 .then(() => {
                     UserModel.findOne({
                         username: username
@@ -290,7 +290,7 @@ var userCtl = {
     },
     deleteUser: function (username) {
         var load = new Promise((resolve, reject) => {
-            mongoose.connect("mongodb://localhost/gthub", null)
+            mongoose.connect(db, null)
                 .then(() => {
                     UserModel.findOneAndRemove({
                             username: username

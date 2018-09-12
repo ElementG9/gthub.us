@@ -1,5 +1,4 @@
 /* - - - Modules - - - */
-const dir = "/home/ubuntu/gthub.us/";
 const userCtl = require(dir + "server-scripts/dbCtrl.js").user;
 const postCtl = require(dir + "server-scripts/dbCtrl.js").post;
 

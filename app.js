@@ -5,7 +5,7 @@ var io = require("socket.io")(http);
 app.set("view engine", "pug");
 
 /* - - - Start Twitter Clone - - - */
-var twitterRouter = require(__dirname + "/server-scripts/webserver.js");
+var twitterRouter = require(__dirname + "/twitter-clone/server-scripts/webserver.js");
 app.use("/twitter-clone/", twitterRouter);
 var protectRoute = (req, res, next) => {
     if (req.session.user && req.cookies.user_sid) {

@@ -1,4 +1,4 @@
 {
-    "dir": "/home/ubuntu/gthub.us/twitter-clone",
+    "dir": "/home/ubuntu/gthub.us/twitter-clone/",
     "db": "mongodb://localhost/gthub/twitter-clone"
 }

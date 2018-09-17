@@ -4,6 +4,12 @@ var io = require("socket.io")(http);
 
 app.set("view engine", "pug");
 
+app.get("/", (req, res) => {
+    res.render("site-index", {
+        title: "gthub.us"
+    });
+});
+
 /* - - - Start Twitter Clone - - - */
 var twitterRouter = require(__dirname + "/server-scripts/twitter-webserver.js");
 app.use("/twitter-clone/", twitterRouter);

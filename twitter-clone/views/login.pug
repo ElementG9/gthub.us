@@ -1,7 +1,7 @@
 extends layout.pug
 block content
-    link(rel="stylesheet", href="/style/login.css")
-    form(action="/login",method="post")
+    link(rel="stylesheet", href="/twitter-clone/style/login.css")
+    form(action="/twitter-clone/login",method="post")
         .login
             h1 Log in
             hr
@@ -13,4 +13,4 @@ block content
                 input(type="password",placeholder="Enter password",name="password",required)
             button(type="submit") Log in
     .signup
-        p Don't already have an account? #[a(href="/signup") Sign up]!
+        p Don't already have an account? #[a(href="/twitter-clone/signup") Sign up]!

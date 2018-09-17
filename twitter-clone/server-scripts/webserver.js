@@ -37,7 +37,7 @@ router.use((req, res, next) => {
 // check for logged-in users
 var checkLoggedIn = (req, res, next) => {
     if (req.session.user && req.cookies.user_sid) {
-        res.redirect('/dashboard'); // if loggedin, redirect to dashboard
+        res.redirect('/twitter-clone/dashboard'); // if loggedin, redirect to dashboard
     } else {
         next(); // else continue
     }
@@ -46,12 +46,12 @@ var protectRoute = (req, res, next) => {
     if (req.session.user && req.cookies.user_sid) {
         next(); // if logged in, continue
     } else {
-        res.redirect("/login"); // else redirect to login
+        res.redirect("/twitter-clone/login"); // else redirect to login
     }
 };
 router.get('/logout', (req, res) => {
     res.clearCookie('user_sid');
-    res.redirect('/');
+    res.redirect('/twitter-clone/');
 });
 router.route("/signup")
     .get(checkLoggedIn, (req, res) => { // the signup page
@@ -63,10 +63,10 @@ router.route("/signup")
         userCtl.createUser(req.body.username, req.body.password)
             .then((user) => {
                 req.session.user = user;
-                res.redirect("/dashboard");
+                res.redirect("/twitter-clone/dashboard");
             })
             .catch((err) => {
-                res.redirect("/signup");
+                res.redirect("/twitter-clone/signup");
             });
     });
 router.route("/login")
@@ -78,9 +78,9 @@ router.route("/login")
     .post((req, res) => { // the login handler
         userCtl.authUser(req.body.username, req.body.password).then((user) => {
             req.session.user = user;
-            res.redirect("/dashboard");
+            res.redirect("/twitter-clone/dashboard");
         }).catch(() => {
-            res.redirect("/login");
+            res.redirect("/twitter-clone/login");
         });
     });
 
@@ -101,7 +101,7 @@ router.route("/post")
     .post(protectRoute, (req, res) => {
         var data = req.body.content;
         postCtl.createPost(req.session.user.username, data);
-        res.redirect("/dashboard");
+        res.redirect("/twitter-clone/dashboard");
     });;
 router.get("/feed", (req, res) => {
     postCtl.getAllPosts()

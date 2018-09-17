@@ -4,18 +4,18 @@ var io = require("socket.io")(http);
 
 app.set("view engine", "pug");
 
-var websiteRouter = require(__dirname + "/server-scripts/webserver.js");
-app.use("/", websiteRouter);
+/* - - - Start Twitter Clone - - - */
+var twitterRouter = require(__dirname + "/server-scripts/webserver.js");
+app.use("/twitter-clone/", twitterRouter);
 var protectRoute = (req, res, next) => {
     if (req.session.user && req.cookies.user_sid) {
         next(); // if logged in, continue
     } else {
-        res.redirect("/login"); // else redirect to login
+        res.redirect("/twitter-clone/login"); // else redirect to login
     }
 };
-
 // get the dashboard
-app.get("/dashboard", protectRoute, (req, res) => { // the dashboard page
+app.get("/twitter-clone/dashboard", protectRoute, (req, res) => { // the dashboard page
     var user = req.session.user;
     res.render("dashboard", {
         loggedin: true,
@@ -23,12 +23,12 @@ app.get("/dashboard", protectRoute, (req, res) => { // the dashboard page
         title: "gthub.us Dashboard"
     });
 });
-
 io.on("connection", (socket) => {
     socket.on("create post", () => {
         io.emit("create post");
     });
 });
+/* - - - End Twitter Clone - - - */
 
 // 404 error
 app.use(function (req, res, next) {

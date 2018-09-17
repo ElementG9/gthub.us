@@ -1,7 +1,7 @@
 /* - - - Modules - - - */
 const dir = __dirname + "/../";
-const userCtl = require(dir + "server-scripts/dbCtrl.js").user;
-const postCtl = require(dir + "server-scripts/dbCtrl.js").post;
+const userCtl = require("./twitter-dbCtrl.js").user;
+const postCtl = require("./twitter-dbCtrl.js").post;
 
 const express = require("express");
 const bodyParser = require("body-parser");

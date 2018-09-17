@@ -87,7 +87,7 @@ router.route("/login")
 /* - - - Routes - - - */
 router.get("/", (req, res) => { // the main page
     if (req.session.user && req.cookies.user_sid) {
-        res.render("index", {
+        res.render("/twitter-clone/views/index", {
             title: "gthub.us",
             loggedin: true
         });

@@ -9,6 +9,7 @@ body
         a(href="https://gthub.us/") gthub.us
         a(href="https://gthub.us/twitter-clone") Twitter Clone
         a(href="https://gthub.us/ses") SES
+    .projectnav
         case project
             when "twitterclone"
                 case loggedin
@@ -22,8 +23,7 @@ body
                             a(href="/twitter-clone/signup") Signup
             when "ses"
                 a(href="/ses/docs") Docs
-                .align-right
-                    a(href="/ses/download") Download SES
+                a(href="/ses/download") Download SES
     .spacer
     .content
         block content

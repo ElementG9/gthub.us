@@ -6,6 +6,7 @@ app.set("view engine", "pug");
 
 /* - - - Start Twitter Clone - - - */
 var twitterRouter = require(__dirname + "/twitter-clone/server-scripts/webserver.js");
+app.set("views", __dirname + "/twitter-clone/views");
 app.use("/twitter-clone/", twitterRouter);
 var protectRoute = (req, res, next) => {
     if (req.session.user && req.cookies.user_sid) {

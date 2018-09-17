@@ -15,7 +15,6 @@ router.use(bodyParser.urlencoded({
 }));
 router.use(bodyParser.json());
 router.use(cookies());
-router.set("views", __dirname + "/../views");
 // set up session
 router.use(session({
     key: 'user_sid',

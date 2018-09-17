@@ -31,9 +31,17 @@ io.on("connection", (socket) => {
 /* - - - End Twitter Clone - - - */
 
 /* - - - Start SES - - - */
-var sesRouter = require(__dirname + "/ses/app.js");
-app.set
+var sesRouter = require(__dirname + "/server-scripts/ses-webserver.js");
+app.use("/ses", sesRouter);
 /* - - - End SES - - - */
+
+// serve the css and js files
+app.get("/style/:file", (req, res) => {
+    res.sendFile(dir + "style/" + req.params.file);
+});
+app.get("/scripts/:file", (req, res) => {
+    res.sendFile(dir + "client-scripts/" + req.params.file);
+});
 
 // 404 error
 app.use(function (req, res, next) {

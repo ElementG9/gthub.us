@@ -1,0 +1,31 @@
+doctype html
+head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title #{title}
+    link(rel="stylesheet", href="main.css")
+body
+    .nav
+        a(href="https://gthub.us/") gthub.us
+        a(href="https://gthub.us/twitter-clone") Twitter Clone
+        a(href="https://gthub.us/ses") SES
+        case project
+            when "twitterclone"
+                case loggedin
+                    when true
+                        a(href='/twitter-clone/dashboard') Dashboard
+                        .align-right
+                            a(href='/twitter-clone/logout') Logout
+                    default
+                        .align-right
+                            a(href='/twitter-clone/login') Login
+                            a(href="/twitter-clone/signup") Signup
+            when "ses"
+                a(href="/ses/docs") Docs
+                .align-right
+                    a(href="/ses/download") Download SES
+    .spacer
+    .content
+        block content
+    .javascript
+        block javascript

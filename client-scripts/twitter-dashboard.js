@@ -10,7 +10,7 @@ app.controller("AppCtl", function ($scope, $http) {
         if ($scope.content != "") {
             $http({
                 method: "post",
-                url: "/post",
+                url: "/twitter-clone/post",
                 data: JSON.stringify({
                     content: $scope.content
                 }),
@@ -23,7 +23,7 @@ app.controller("AppCtl", function ($scope, $http) {
         }
     };
     $scope.getPosts = () => {
-        $http.get("/feed").then((data) => {
+        $http.get("/twitter-clone/feed").then((data) => {
             $scope.posts = data.data;
         });
     };

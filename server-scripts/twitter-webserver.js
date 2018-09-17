@@ -1,5 +1,5 @@
 /* - - - Modules - - - */
-const dir = JSON.parse(require("fs").readFileSync(__dirname + "/../config.json", "utf8")).dir;
+const dir = __dirname + "/../";
 const userCtl = require(dir + "server-scripts/dbCtrl.js").user;
 const postCtl = require(dir + "server-scripts/dbCtrl.js").post;
 
@@ -7,7 +7,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const cookies = require("cookie-parser");
-const pug = require("pug");
 
 /* - - - Config - - - */
 const router = express.Router();
@@ -18,7 +17,7 @@ router.use(bodyParser.json());
 router.use(cookies());
 // set up session
 router.use(session({
-    key: 'user_sid',
+    key: 'twitter_clone_user_sid',
     secret: 'somerandomstuff',
     resave: false,
     saveUninitialized: false,
@@ -30,34 +29,35 @@ router.use(session({
 /* - - - Login - - - */
 // clear previous cookie if user is not logged in
 router.use((req, res, next) => {
-    if (typeof req.cookies.user_sid != "undefined" && !req.session.user) {
-        res.clearCookie('user_sid');
+    if (typeof req.cookies.twitter_clone_user_sid != "undefined" && !req.session.user) {
+        res.clearCookie('twitter_clone_user_sid');
     }
     next();
 });
 // check for logged-in users
 var checkLoggedIn = (req, res, next) => {
-    if (req.session.user && req.cookies.user_sid) {
+    if (req.session.user && req.cookies.twitter_clone_user_sid) {
         res.redirect('/twitter-clone/dashboard'); // if loggedin, redirect to dashboard
     } else {
         next(); // else continue
     }
 };
 var protectRoute = (req, res, next) => {
-    if (req.session.user && req.cookies.user_sid) {
+    if (req.session.user && req.cookies.twitter_clone_user_sid) {
         next(); // if logged in, continue
     } else {
         res.redirect("/twitter-clone/login"); // else redirect to login
     }
 };
 router.get('/logout', (req, res) => {
-    res.clearCookie('user_sid');
+    res.clearCookie('twitter_clone_user_sid');
     res.redirect('/twitter-clone/');
 });
 router.route("/signup")
     .get(checkLoggedIn, (req, res) => { // the signup page
-        res.render("/twitter-clone/views/signup", {
-            title: "gthub.us Signup"
+        res.render("twitter-signup", {
+            project: "twitterclone",
+            title: "Signup | twitter-clone | gthub.us"
         });
     })
     .post((req, res) => { // the signup handler
@@ -72,8 +72,9 @@ router.route("/signup")
     });
 router.route("/login")
     .get(checkLoggedIn, (req, res) => { // the login page
-        res.render("/twitter-clone/views/login", {
-            title: "gthub.us Login"
+        res.render("twitter-login", {
+            project: "twitterclone",
+            title: "Login | twitter-clone | gthub.us"
         });
     })
     .post((req, res) => { // the login handler
@@ -87,14 +88,16 @@ router.route("/login")
 
 /* - - - Routes - - - */
 router.get("/", (req, res) => { // the main page
-    if (req.session.user && req.cookies.user_sid) {
-        res.render("/twitter-clone/views/index", {
-            title: "gthub.us",
+    if (req.session.user && req.cookies.twitter_clone_user_sid) {
+        res.render("twitter-index", {
+            project: "twitterclone",
+            title: "twitter-clone | gthub.us",
             loggedin: true
         });
     } else {
-        res.render("/twitter-clone/views/index", {
-            title: "gthub.us"
+        res.render("twitter-index", {
+            project: "twitterclone",
+            title: "twitter-clone | gthub.us"
         });
     }
 });
@@ -109,14 +112,6 @@ router.get("/feed", (req, res) => {
         .then((docs) => {
             res.json(docs.reverse());
         });
-});
-
-// serve the css and js files
-router.get("/style/:file", (req, res) => {
-    res.sendFile(dir + "style/" + req.params.file);
-});
-router.get("/scripts/:file", (req, res) => {
-    res.sendFile(dir + "client-scripts/" + req.params.file);
 });
 
 /* - - - Export - - - */

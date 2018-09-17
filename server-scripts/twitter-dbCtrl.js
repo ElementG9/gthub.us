@@ -1,4 +1,4 @@
-const db = JSON.parse(require("fs").readFileSync(__dirname + "/../config.json", "utf8")).db;
+const db = JSON.parse(require("fs").readFileSync(__dirname + "/../twitter-config.json", "utf8")).db;
 const mongoose = require("mongoose");
 var bcrypt = require("bcryptjs");
 

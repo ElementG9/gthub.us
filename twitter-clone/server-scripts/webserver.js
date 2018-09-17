@@ -55,7 +55,7 @@ router.get('/logout', (req, res) => {
 });
 router.route("/signup")
     .get(checkLoggedIn, (req, res) => { // the signup page
-        res.render("signup", {
+        res.render("/twitter-clone/views/signup", {
             title: "gthub.us Signup"
         });
     })
@@ -71,7 +71,7 @@ router.route("/signup")
     });
 router.route("/login")
     .get(checkLoggedIn, (req, res) => { // the login page
-        res.render("login", {
+        res.render("/twitter-clone/views/login", {
             title: "gthub.us Login"
         });
     })
@@ -87,12 +87,12 @@ router.route("/login")
 /* - - - Routes - - - */
 router.get("/", (req, res) => { // the main page
     if (req.session.user && req.cookies.user_sid) {
-        res.render("index", {
+        res.render("/twitter-clone/views/index", {
             title: "gthub.us",
             loggedin: true
         });
     } else {
-        res.render("index", {
+        res.render("/twitter-clone/views/index", {
             title: "gthub.us"
         });
     }

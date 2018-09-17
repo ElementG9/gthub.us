@@ -18,6 +18,7 @@ var protectRoute = (req, res, next) => {
 app.get("/twitter-clone/dashboard", protectRoute, (req, res) => { // the dashboard page
     var user = req.session.user;
     res.render("dashboard", {
+        project: "twitterclone",
         loggedin: true,
         username: user.username,
         title: "gthub.us Dashboard"
@@ -37,10 +38,10 @@ app.use("/ses", sesRouter);
 
 // serve the css and js files
 app.get("/style/:file", (req, res) => {
-    res.sendFile(dir + "style/" + req.params.file);
+    res.sendFile(__dirname + "/style/" + req.params.file);
 });
 app.get("/scripts/:file", (req, res) => {
-    res.sendFile(dir + "client-scripts/" + req.params.file);
+    res.sendFile(__dirname + "/client-scripts/" + req.params.file);
 });
 
 // 404 error

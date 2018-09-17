@@ -14,11 +14,10 @@ hr {
 }
 
 .spacer {
-    height: 88px;
+    height: 44px;
 }
 
-.nav,
-.projectnav {
+.nav {
     background-color: #333;
     overflow: hidden;
     position: fixed;
@@ -26,8 +25,7 @@ hr {
     width: 100%;
 }
 
-.nav a,
-.projectnav a {
+.nav a {
     background-color: #333;
     color: white;
     transition: 0.2s;
@@ -39,17 +37,11 @@ hr {
     border-right: 1px solid #444;
 }
 
-.nav a:hover,
-.projectnav a:hover {
+.nav a:hover {
     background-color: #373;
 }
 
-.projectnav .align-right,
 .nav .align-right {
     float: right;
     border-left: 1px solid #444;
-}
-
-.projectnav {
-    top: 44;
 }

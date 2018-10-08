@@ -1,7 +1,8 @@
-This is the repo for my personal website, [gthub.us](https://www.gthub.us)!
+This is the repository for my personal website.
 
-Currently there is:
+To run it:
+* Clone the repository.
+* Run `npm -i` to install the dependencies.
+* Run `node app.js` to run the server.
 
-* [A twitter clone](https://gthub.us/twitter-clone)
-
-* [A programming language](https://gthub.us/ses)
+The server runs on port 8080.

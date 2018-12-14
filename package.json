@@ -1,28 +1,32 @@
 {
   "name": "gthub.us",
   "version": "1.0.0",
-  "description": "The gthub.us website.",
+  "description": "The source code for gthub.us",
   "main": "app.js",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.18.3",
-    "cookie-parser": "^1.4.3",
-    "express": "^4.16.3",
-    "express-session": "^1.15.6",
-    "forever": "^0.15.3",
-    "mongoose": "^5.2.10",
-    "nodemon": "^1.18.4",
-    "pug": "^2.0.3",
-    "socket.io": "^2.1.1"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Hello world!\";"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElementG9/gthub.us.git"
   },
   "keywords": [
-    "gthub.us",
     "ElementG9"
   ],
   "author": "ElementG9",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ElementG9/gthub.us/issues"
+  },
+  "homepage": "https://github.com/ElementG9/gthub.us#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.16",
+    "pug": "^2.0.3",
+    "session": "^0.1.0",
+    "socket.io": "^2.2.0"
+  }
 }

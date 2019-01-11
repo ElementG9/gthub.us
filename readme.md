@@ -4,7 +4,7 @@ Author: ElementG9
 
 The repo [ElementG9/gthub.us](https://github.com/ElementG9/gthub.us) is the source code for [gthub.us](https://gthub.us/)
 
-__Installation__:
+__Installation:__
 
 * Clone the repo with `git clone https://github.com/ElementG9/gthub.us`
 

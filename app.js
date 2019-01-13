@@ -26,7 +26,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        expires: 600000 // 10 minutes = 1000ms * 60 * 10.
+        expires: 600000 // 10 minutes = 600,000 ms = 1,000 ms * 60 * 10.
     }
 }));
 
@@ -48,6 +48,15 @@ app.get("/", (req, res) => {
         title: "gthub.us",
         loggedin: loggedin
     });
+});
+
+// Serve CSS at /style/.
+app.get("/style/:file", (req, res) => {
+    res.sendFile(`${__dirname}/public/styles/${req.params.file}`);
+});
+// Serve JS at /script/.
+app.get("/script/:file", (req, res) => {
+    res.sendFile(`${__dirname}/public/scripts/${req.params.file}`);
 });
 
 // Make the app listen.

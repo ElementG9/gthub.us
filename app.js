@@ -12,6 +12,7 @@ const helmet = require("helmet");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const cookies = require("cookie-parser");
+const pivotRouter = require("./server-scripts/pivot-router.js");
 app.use(helmet());
 app.set("view engine", "pug");
 app.set('views', './views');
@@ -35,10 +36,10 @@ var loggedin = false;
 const protect = (req, res, next) => {
     if (req.session.user && req.cookies.gthub_user_sid) {
         loggedin = true;
-        next(); // if logged in, continue
+        next(); // If logged in, continue.
     } else {
         loggedin = false;
-        res.redirect("/login"); // else redirect to login
+        res.redirect("/login"); // If not logged in, redirect to /login/.
     }
 };
 
@@ -49,6 +50,9 @@ app.get("/", (req, res) => {
         loggedin: loggedin
     });
 });
+
+// Use pivot-router.js for the /pivot/ route.
+app.use("/pivot", pivotRouter);
 
 // Serve CSS at /style/.
 app.get("/style/:file", (req, res) => {

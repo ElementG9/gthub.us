@@ -63,6 +63,13 @@ app.get("/script/:file", (req, res) => {
     res.sendFile(`${__dirname}/public/scripts/${req.params.file}`);
 });
 
+// 404 error.
+app.use(function (req, res, next) {
+    res.status(404).render("404", {
+        loggedin: loggedin
+    });
+});
+
 // Make the app listen.
 app.listen(process.env.port, () => {
     console.log(`Listening on port ${process.env.port}.`);

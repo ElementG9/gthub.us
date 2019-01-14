@@ -1,0 +1,12 @@
+#title {
+	color: #000;
+	text-align: center;
+	font-size: 400%;
+	text-transform: none;
+}
+code {
+	background-color: #ddd;
+	padding: 7px 8px;
+	margin: 4px;
+	border: 1px dashed #aaa;
+}

@@ -13,15 +13,22 @@ body {
 	background-color: #fff;
 	border: 1px solid #ddd;
 }
+.container > .container {
+	border: 2px solid #ddd;
+}
 a {
 	color: #155799;
 }
 #spacer {
 	height: 44px;
 }
+#lowerspacer {
+	height: 34px;
+}
 
 /* CSS for the footer */
 footer {
+	z-index: 10;
 	left: 0;
 	bottom: 0;
 	position: fixed;
@@ -29,7 +36,7 @@ footer {
 	background-color: #333;
 	overflow: hidden;
 }
-footer a {
+footer a, footer p {
 	float: left;
 	color: #f2f2f2;
     text-align: center;
@@ -40,7 +47,7 @@ footer a {
     border-right: 1px solid #555;
 	transition: background-color 0.5s;
 }
-footer a:hover {
+footer a:hover, footer p:hover {
 	color: #f2f2f2;
 	background-color: #444;
 }
@@ -59,14 +66,21 @@ hr {
 }
 .smallhr {
 	max-width: 25%;
-	border: 1px dashed #ddd;
+	border: 1px dashed #ccc;
 }
 .centeralign {
 	text-align: center;
 }
+.rightalign > p, .rightalign > a {
+	border-left: 1px solid #555;
+	border-right: none;
+	float: right;
+	margin: 0px;
+}
 
 /* CSS for the navbar. */
 nav {
+	z-index: 10;
 	position: fixed;
 	top:0;
 	width: 100%;

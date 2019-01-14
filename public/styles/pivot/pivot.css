@@ -22,5 +22,8 @@
 	display: flex;
 	flex-direction: column;
 	background: linear-gradient(#159957,#155799);
-	height: 1000px;
+	height: 100%;
+}
+p {
+	text-align: center;
 }

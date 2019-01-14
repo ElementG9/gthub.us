@@ -1,4 +1,47 @@
 extends ../../template.pug
 block content
+	link(rel="stylesheet", href="/style/pivot/pivot.css")
 	link(rel="stylesheet", href="/style/pivot/docs.css")
 	link(href='https://fonts.googleapis.com/css?family=Lato', rel='stylesheet')
+	#main
+		.container
+			h1#title Pivot Documentation
+			.container#docsnav
+				h1.subtitle Pivot Documentation Index
+				hr
+				p #[a(href="#installation").pivotunderline Installation]
+				hr.smallhr
+				p #[a(href="#variables").pivotunderline Variables]
+				hr.smallhr
+				p #[a(href="#functions").pivotunderline Functions]
+				hr.smallhr
+				p #[a(href="#contributing").pivotunderline Contributing]
+			.container#installation
+				h1.subtitle Installation
+				hr
+				p Download or clone #[a(href="/pivot/repo",target="_blank").pivotunderline the GitHub repository].
+				hr.smallhr
+				p Download #[a(href="https://nodejs.org/",target="_blank").pivotunderline node.js].
+				hr.smallhr
+				p Run #[i pivot.js] with #[code node pivot.js].
+			.container#variables
+				h1.subtitle Variables
+				hr
+				p Variable declaration in Pivot is similar to Python. A variable must be declared and#[br]defined at the same time, and can be redefined at any later point.
+				hr.smallhr
+				h3.centeralign #[b Example:]
+				p The code #[code x = 4] would create a variable #[code x] with an inital value of #[code 4].
+				hr.smallhr
+				p Variables cannot be created without values. Valid variable#[br]values are integers, floats, strings, booleans, and #[a(href="#functions").pivotunderline functions].
+			.container#functions
+				h1.subtitle Functions
+				hr
+				p Function declaration in Pivot is simple, and similar to other programming languages.
+				hr.smallhr
+				h3.centeralign #[b Example:]
+				p The code #[code add = (a, b) {return(a + b)}] would create a function that adds two numbers.
+				p The formatting is #[code functionName = (parameter1, parameter2, ...) {code}].
+			.container#contributing
+				h1.subtitle Contributing
+				hr
+				p To contribute, please visit #[a(href="/pivot/repo",target="_blank").pivotunderline the GitHub repository].

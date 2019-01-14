@@ -4,7 +4,51 @@ body {
     padding: 0;
     margin: 0;
 }
+.content {
+	margin: 14px 16px;
+}
+.container {
+	padding: 14px 16px;
+	margin: 14px 16px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+}
+a {
+	color: #155799;
+}
+#spacer {
+	height: 44px;
+}
+
+/* CSS for the footer */
+footer {
+	left: 0;
+	bottom: 0;
+	position: fixed;
+	width: 100%;
+	background-color: #333;
+	overflow: hidden;
+}
+footer a {
+	float: left;
+	color: #f2f2f2;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+    font-size: 14px;
+	background-color: #333;
+    border-right: 1px solid #555;
+	transition: background-color 0.5s;
+}
+footer a:hover {
+	color: #f2f2f2;
+	background-color: #444;
+}
+
+/* CSS for the navbar. */
 nav {
+	position: fixed;
+	top:0;
 	width: 100%;
     background-color: #333;
     overflow: hidden;
@@ -17,13 +61,63 @@ nav a {
     text-decoration: none;
     font-size: 16px;
     border-right: 1px solid #555;
+	transition: background-color 0.5s;
 }
 nav a:hover {
-	background-color: #444;
+	color: #f2f2f2;
 }
 nav #active {
 	background-color: #444;
 }
-.content {
-	padding: 14px 16px;
+
+/* Animate link underline. */
+a {
+	position: relative;
+	text-decoration: none;
+}
+a:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: #000;
+	visibility: hidden;
+	transform: scaleX(0);
+	transition: all 0.3s ease-in-out 0s;
+}
+a:hover:before {
+	visibility: visible;
+	transform: scaleX(1);
+	background-color: #000;
+}
+
+/* Different link underline colors */
+.whiteunderline:before {
+	background-color: #fff;
+}
+.whiteunderline:hover:before {
+	background-color: #fff;
+}
+.pivotunderline:before {
+	background-color: #155799;
+}
+.pivotunderline:hover:before {
+	background-color: #155799;
+}
+.thickunderline:before {
+	height: 4px;
+}
+.navunderline:before {
+	background-color: #333;
+}
+.navunderline:hover:before {
+	background-color: #777;
+}
+.navpivotunderline:before {
+	background-color: #333;
+}
+.navpivotunderline:hover:before {
+	background-color: #159957;
 }

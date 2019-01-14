@@ -6,7 +6,10 @@ head
 	link(rel="stylesheet", href="/style/template.css")
 body
 	nav#nav
-		a(href="/") gthub.us
-		a(href="/pivot/", id=active=="pivot"?'active':'') Pivot
+		a(href="/").navunderline.thickunderline gthub.us
+		a(href="/pivot/", id=active=="pivot"?'active':'').navpivotunderline.thickunderline Pivot
+	#spacer
 	block content
 	footer#footer
+		a(href="/about").navunderline.thickunderline About us
+		a(href="/donate").navunderline.thickunderline Support us

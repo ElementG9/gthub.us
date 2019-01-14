@@ -1,15 +1,19 @@
 extends ../template.pug
 block content
-	h1 Pivot
-	hr
-	p Pivot is a new programming language built on #[a(href="https://javascript.com/") JavaScript] by #[a(href="https://github.com/ElementG9/") ElementG9].
-	p Pivot is currently in the alpha stage of development.
-	hr
-	h3 Installation
-	ul
-		li Download or clone #[a(href="/pivot/repo") the GitHub repository].
-		li Download #[a(href="https://nodejs.org/") node.js].
-		li Run #[i pivot.js] with #[code node pivot.js].
-	hr
-	h3 Documentation
-	p The Pivot documentation is at #[a(href="/pivot/docs") https://gthub.us/pivot/docs].
+	link(rel="stylesheet", href="/style/pivot.css")
+	link(href='https://fonts.googleapis.com/css?family=Lato', rel='stylesheet')
+	#main
+		h1#title Pivot
+		p#description Pivot is a new programming language built on #[a(href="https://javascript.com/").whiteunderline JavaScript] by #[a(href="https://github.com/ElementG9/").whiteunderline ElementG9].
+		.container#installation
+			h1.subtitle Installation
+			hr
+			p.centeralign Download or clone #[a(href="/pivot/repo").pivotunderline the GitHub repository].
+			hr.smallhr
+			p.centeralign Download #[a(href="https://nodejs.org/").pivotunderline node.js].
+			hr.smallhr
+			p.centeralign Run #[i pivot.js] with #[code node pivot.js].
+		.container#documentation
+			h1.subtitle Documentation
+			hr
+			p.centeralign The Pivot documentation is at #[a(href="/pivot/docs").pivotunderline https://gthub.us/pivot/docs].

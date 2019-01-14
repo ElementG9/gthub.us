@@ -1,0 +1,45 @@
+#title, #description {
+	color: #fff;
+	text-align: center;
+	font-family: 'Lato', sans-serif;
+	text-transform: uppercase;
+	font-size: 700%;
+	margin-top: 75px;
+}
+#description {
+	margin-top: 0px;
+	margin-bottom: 75px;
+	font-size: 200%;
+	text-transform: none;
+}
+#description a {
+	color: #fff;
+}
+#description a:hover {
+	color: #fff;
+}
+#main {
+	display: flex;
+	flex-direction: column;
+	background: linear-gradient(#159957,#155799);
+	height: 1000px;
+}
+.subtitle {
+	text-align: center;
+	color: #222;
+}
+.container {
+	margin-left: 50px;
+	margin-right: 50px;
+}
+hr {
+	border: 1px solid #aaa;
+	border-radius: 1px;
+}
+.smallhr {
+	max-width: 25%;
+	border: 1px dashed #ddd;
+}
+.centeralign {
+	text-align: center;
+}

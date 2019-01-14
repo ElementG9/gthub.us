@@ -1,5 +1,6 @@
 const express = require("express");
 var router = express.Router();
+const docsRouter = require("./pivot-docs-router.js");
 
 // Render pivot.pug for /pivot/
 router.get("/", (req, res) => {
@@ -11,19 +12,13 @@ router.get("/", (req, res) => {
 
 // Redirect /pivot/documentation/ to /pivot/docs/.
 router.get("/documentation", (req, res) => {
-	res.redirect("/docs");
+	res.redirect("/pivot/docs");
 });
-// Render docs.pug for /pivot/docs/.
-router.get("/docs", (req, res) => {
-	res.render("pivot/docs.pug", {
-		title: "Pivot Documentation | gthub.us",
-		active: "pivot"
-	});
-});
+router.use("/docs", docsRouter);
 
 // Redirect /pivot/repository/ to /pivot/repo/.
 router.get("/repository", (req, res) => {
-	res.redirect("/repo");
+	res.redirect("/pivot/repo");
 });
 // Redirect /pivot/repo/ to the actual repository.
 router.get("/repo", (req, res) => {

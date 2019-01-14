@@ -13,6 +13,7 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const cookies = require("cookie-parser");
 const pivotRouter = require("./server-scripts/pivot-router.js");
+const cssRouter = require("./public/css-router.js");
 app.use(helmet());
 app.set("view engine", "pug");
 app.set('views', './views');
@@ -55,9 +56,8 @@ app.get("/", (req, res) => {
 app.use("/pivot", pivotRouter);
 
 // Serve CSS at /style/.
-app.get("/style/:file", (req, res) => {
-    res.sendFile(`${__dirname}/public/styles/${req.params.file}`);
-});
+app.use("/style", cssRouter);
+
 // Serve JS at /script/.
 app.get("/script/:file", (req, res) => {
     res.sendFile(`${__dirname}/public/scripts/${req.params.file}`);

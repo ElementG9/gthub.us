@@ -45,6 +45,26 @@ footer a:hover {
 	background-color: #444;
 }
 
+.subtitle {
+	text-align: center;
+	color: #222;
+}
+.container {
+	margin-left: 50px;
+	margin-right: 50px;
+}
+hr {
+	border: 1px solid #aaa;
+	border-radius: 1px;
+}
+.smallhr {
+	max-width: 25%;
+	border: 1px dashed #ddd;
+}
+.centeralign {
+	text-align: center;
+}
+
 /* CSS for the navbar. */
 nav {
 	position: fixed;
